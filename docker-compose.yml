@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    container_name: tcc-postgres
+    environment:
+      POSTGRES_USER: tcc_usr
+      POSTGRES_PASSWORD: tcc_pwd
+      POSTGRES_DB: tcc_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: tcc-api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://tcc_usr:tcc_pwd@db:5432/tcc_db
+
+volumes:
+  postgres_data:
