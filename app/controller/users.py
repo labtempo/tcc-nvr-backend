@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from datetime import timedelta
-from app.schema.login import LoginData, TokenResponse, UserData, NovoUsuario
-from app.infra.security import fazer_login, gerar_token, pegar_usuario_atual, TOKEN_EXPIRE_HOURS, buscar_usuario_email, criar_hash_senha, usuarios
+from app.dtos.login import LoginData, UserData, NovoUsuario
+from app.security.TokenContext import TokenResponse
+from app.security.security import fazer_login, gerar_token, pegar_usuario_atual, TOKEN_EXPIRE_HOURS, buscar_usuario_email, criar_hash_senha, usuarios
 from typing import List
 
 router = APIRouter()
