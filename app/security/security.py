@@ -1,13 +1,14 @@
-from datetime import datetime, timedelta
-from typing import Optional
 import hashlib
 import jwt
+from datetime import datetime, timedelta
+from typing import Optional
 from fastapi import HTTPException, Depends, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlmodel import Session, select
 from app.domain.user import User
 from app.resources.database.connection import get_session
 from datetime import datetime, timedelta, timezone
+from app.repositoy.login_repository import buscar_usuario_email
 
 # --- CONFIGS ---
 JWT_SECRET = "kjh87asd6f7asd6f87asd6f78asd6f8asd7f6asd78f6asd7f6"
@@ -25,7 +26,7 @@ security = HTTPBearer()
 #        "tipo": "admin"
 #    }
 #}
-#
+
 # --- FUNÇÕES DE SEGURANÇA ---
 def criar_hash_senha(senha: str) -> str:
     return hashlib.sha256(senha.encode()).hexdigest()
@@ -61,10 +62,6 @@ async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depend
         raise erro_auth
     return user
     
-def buscar_usuario_email(email: str, session: Session):
-    statement = select(User).where(User.email == email)
-    return session.exec(statement).first()
-
 def fazer_login(email: str, senha: str, session: Session):
     user = buscar_usuario_email(email, session)
     if not user:
