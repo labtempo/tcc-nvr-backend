@@ -8,10 +8,10 @@ class LoginData(BaseModel):
 class UserData(BaseModel):
     id: int
     email: str
-    nome: str
-    tipo: str
+    full_name: str  
+    user_role: int
 
 class NovoUsuario(BaseModel):
     email: EmailStr
     password: str
-    nome: str
+    full_name: str

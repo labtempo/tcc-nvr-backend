@@ -14,10 +14,20 @@ pip install fastapi uvicorn pydantic[email] pyjwt
 ### Rodando
 ```bash
 python main.py
+
+or
+
+uvicorn app.main:app 
 ```
 
 - **API**: http://localhost:8000
 - **Docs**: http://localhost:8000/docs
+
+### Para criar um usuario para usar como login 
+```INSERT INTO public."user"
+(id, email, password_hash, full_name, user_role_id, is_active, created_at, updated_at)
+VALUES(nextval('user_id_seq'::regclass), 'admin@sistema.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Administrador', 1, true, 'Now()', 'Now()');
+```
 
 ## Tecnologias
 

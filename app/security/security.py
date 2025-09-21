@@ -44,7 +44,8 @@ def gerar_token(dados: dict, tempo_expiracao: Optional[timedelta] = None):
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
     return token
 
-async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depends(security)):
+async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depends(security),
+    session: Session = Depends(get_session)):
     erro_auth = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Token inválido",
@@ -57,7 +58,7 @@ async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depend
             raise erro_auth
     except jwt.PyJWTError:
         raise erro_auth
-    user = buscar_usuario_email(email)
+    user = buscar_usuario_email(email, session)
     if user is None:
         raise erro_auth
     return user
