@@ -8,7 +8,7 @@ from sqlmodel import Session, select
 from app.domain.user import User
 from app.resources.database.connection import get_session
 from datetime import datetime, timedelta, timezone
-from app.repositoy.login_repository import buscar_usuario_email
+from app.repository.login_repository import buscar_usuario_email
 
 # --- CONFIGS ---
 JWT_SECRET = "kjh87asd6f7asd6f87asd6f78asd6f8asd7f6asd78f6asd7f6"

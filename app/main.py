@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from app.routers import users
+from app.controller.users import router as users
 from app.resources.database.connection import create_db_and_tables
 from datetime import datetime
 
 app = FastAPI(title="API - OPERAÇÕES", version="1.0")
 
-app.include_router(users.router, prefix="/api/v1")
+app.include_router(users, prefix="/api/v1") 
 
 @app.on_event("startup")
 def on_startup():

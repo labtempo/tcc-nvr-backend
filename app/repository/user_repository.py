@@ -10,3 +10,7 @@ def create_user(user: User, session: Session) -> User:
     session.commit()
     session.refresh(user)
     return user
+
+def get_all_users(session: Session) -> list[User]:
+    statement = select(User)
+    return session.exec(statement).all()

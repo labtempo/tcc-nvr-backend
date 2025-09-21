@@ -1,11 +1,10 @@
 from sqlmodel import Session, select
 from fastapi import HTTPException, status
 from app.domain.user import User
-from app.security.security import verificar_senha
 from app.dtos.login import LoginData
-from app.repositoy.user_repository import get_user_by_email
-from app.repositoy.user_repository import create_user
-from security import criar_hash_senha
+from app.repository.user_repository import get_user_by_email
+from app.repository.user_repository import create_user
+from app.security.security import criar_hash_senha, verificar_senha
 from app.dtos.login import NovoUsuario
 
 def authenticate_user(login_data: LoginData, session: Session) -> User | None:
