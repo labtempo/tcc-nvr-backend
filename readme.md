@@ -2,22 +2,56 @@
 
 ## Sobre o Sistema
 
-API simples para controle de acesso com autenticação JWT. Feita com FastAPI para gerenciar usuários e permissões. (ATÉ O MOMENTO!!)
+API para controle de acesso com autenticação JWT. Feita com FastAPI para gerenciar usuários e permissões.
 
-## Como Usar
+## Instalação
 
-### Instalação
 ```bash
-pip install fastapi uvicorn pydantic[email] pyjwt
+pip install -r requirements.txt
 ```
 
-### Rodando
+## Rodando
+
 ```bash
-python main.py
+uvicorn app.main:app --reload
 ```
 
 - **API**: http://localhost:8000
 - **Docs**: http://localhost:8000/docs
+
+## User Roles
+
+Os tipos de usuário (`admin`, `usuario`) são criados automaticamente no banco ao iniciar a API.
+
+## Primeiro Usuário Admin
+
+Após rodar a aplicação pela primeira vez, o banco estará vazio.  
+**Você precisa inserir manualmente o primeiro usuário admin para conseguir logar e criar outros usuários.**
+
+### Gerando o hash da senha
+
+No terminal Python:
+```python
+from app.security.security import criar_hash_senha
+print(criar_hash_senha("admin123"))
+```
+Copie o hash gerado.
+
+### Inserindo o usuário admin no banco (exemplo para PostgreSQL)
+
+```sql
+INSERT INTO public."user"
+(email, password_hash, full_name, user_role_id, is_active, created_at, updated_at)
+VALUES (
+  'admin@sistema.com',
+  'HASH_GERADO_AQUI',
+  'Administrador',
+  1,
+  true,
+  NOW(),
+  NOW()
+);
+```
 
 ## Tecnologias
 
@@ -32,7 +66,7 @@ python main.py
 Cada usuário tem:
 - **ID**: número único
 - **Email**: para login
-- **Nome**: nome completo
+- **Full Name**: nome completo
 - **Senha**: guardada com hash
 - **Tipo**: "admin" ou "usuario"
 
@@ -50,17 +84,9 @@ Cada usuário tem:
 
 ## Endpoints
 
-### Públicos (não precisa token)
+Todos os endpoints estão sob o prefixo `/api/v1` (exemplo: `/api/v1/login`, `/api/v1/usuarios`).
 
-#### GET /
-Status da API
-```json
-{
-  "sistema": "API Online",
-  "versao": "1.0",
-  "status": "funcionando"
-}
-```
+### Públicos (não precisa token)
 
 #### POST /login
 Fazer login
@@ -78,17 +104,6 @@ Fazer login
 }
 ```
 
-#### GET /status
-Verificar se está funcionando
-```json
-{
-  "online": true,
-  "horario": "15/09/2025 14:30:25",
-  "sistema": "API Sistema",
-  "versao": "1.0"
-}
-```
-
 ### Protegidos (precisa token)
 
 #### GET /perfil
@@ -101,18 +116,8 @@ Authorization: Bearer SEU_TOKEN_AQUI
 {
   "id": 1,
   "email": "admin@sistema.com",
-  "nome": "Administrator",
-  "tipo": "admin"
-}
-```
-
-#### GET /area-restrita  
-Área de exemplo protegida
-```json
-{
-  "msg": "Ola Administrator, voce acessou a area restrita!",
-  "user_id": 1,
-  "acesso_em": "15/09/2025 14:35:10"
+  "full_name": "Administrador",
+  "user_role": 1
 }
 ```
 
@@ -121,23 +126,20 @@ Authorization: Bearer SEU_TOKEN_AQUI
 #### GET /usuarios
 Listar todos usuários
 ```json
-{
-  "usuarios": [
-    {
-      "id": 1,
-      "email": "admin@sistema.com",
-      "nome": "Administrator", 
-      "tipo": "admin"
-    },
-    {
-      "id": 2,
-      "email": "joao@sistema.com",
-      "nome": "João Silva",
-      "tipo": "usuario"
-    }
-  ],
-  "total": 2
-}
+[
+  {
+    "id": 1,
+    "email": "admin@sistema.com",
+    "full_name": "Administrador", 
+    "user_role": 1
+  },
+  {
+    "id": 2,
+    "email": "joao@sistema.com",
+    "full_name": "João Silva",
+    "user_role": 2
+  }
+]
 ```
 
 #### POST /usuarios
@@ -147,12 +149,12 @@ Criar novo usuário
 {
   "email": "maria@sistema.com",
   "password": "senha123",
-  "nome": "Maria Santos"
+  "full_name": "Maria Santos"
 }
 
 // Recebe:
 {
-  "msg": "Usuario maria@sistema.com criado!",
+  "msg": "Usuário maria@sistema.com criado!",
   "id": 3
 }
 ```
@@ -170,41 +172,15 @@ Criar novo usuário
 
 **Login:**
 ```bash
-curl -X POST "http://localhost:8000/login" \
+curl -X POST "http://localhost:8000/api/v1/login" \
   -H "Content-Type: application/json" \
   -d '{"email":"admin@sistema.com","password":"admin123"}'
 ```
 
 **Usar token:**
 ```bash
-curl -X GET "http://localhost:8000/perfil" \
+curl -X GET "http://localhost:8000/api/v1/perfil" \
   -H "Authorization: Bearer SEU_TOKEN_AQUI"
-```
-
-### Com JavaScript
-
-```javascript
-// Fazer login
-const fazerLogin = async (email, senha) => {
-  const resp = await fetch('http://localhost:8000/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password: senha })
-  });
-  return await resp.json();
-};
-
-// Pegar perfil
-const verPerfil = async (token) => {
-  const resp = await fetch('http://localhost:8000/perfil', {
-    headers: { 'Authorization': `Bearer ${token}` }
-  });
-  return await resp.json();
-};
-
-// Exemplo de uso
-const token = await fazerLogin('admin@sistema.com', 'admin123');
-const perfil = await verPerfil(token.access_token);
 ```
 
 ### Com Python
@@ -213,21 +189,21 @@ const perfil = await verPerfil(token.access_token);
 import requests
 
 # Login
-resp = requests.post('http://localhost:8000/login', json={
+resp = requests.post('http://localhost:8000/api/v1/login', json={
     'email': 'admin@sistema.com',
     'password': 'admin123'
 })
 token = resp.json()['access_token']
 
 # Usar token
-perfil = requests.get('http://localhost:8000/perfil', 
+perfil = requests.get('http://localhost:8000/api/v1/perfil', 
     headers={'Authorization': f'Bearer {token}'})
 print(perfil.json())
 ```
 
 ## Problemas Comuns
 
-### "Token invalido"
+### "Token inválido"
 - Fazer login de novo
 - Verificar se copiou o token completo
 - Token expira em 8 horas
@@ -236,11 +212,11 @@ print(perfil.json())
 - Conferir email e senha
 - Usar os usuários de teste
 
-### "Voce nao tem permissao"
+### "Você não tem permissão"
 - Só admin pode criar usuários e ver lista
 - Fazer login como admin@sistema.com
 
-### "Ja existe usuario com esse email"
+### "Já existe usuário com esse email"
 - Email já foi usado
 - Escolher outro email
 
@@ -257,12 +233,20 @@ Para usar em produção real:
 ## Estrutura do Projeto
 
 ```
-projeto/
-├── main.py              # Código principal
-├── requirements.txt     # Dependências
-└── docs/               
-    └── README.md        # Esta documentação
+app/
+  ├── controller/
+  ├── domain/
+  ├── dtos/
+  ├── repository/
+  ├── resources/
+  ├── security/
+  ├── service/
+main.py
+requirements.txt
+.env
 ```
+
+## Arquivos de Exemplo
 
 ### requirements.txt
 ```
@@ -271,8 +255,6 @@ uvicorn[standard]==0.24.0
 pydantic[email]==2.5.0
 PyJWT==2.8.0
 ```
-
-## Arquivos de Exemplo
 
 ### Docker (opcional)
 ```dockerfile
