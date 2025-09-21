@@ -54,7 +54,7 @@ async def criar_usuario(
         email=novo_user.email,
         full_name=novo_user.nome,
         password_hash=criar_hash_senha(novo_user.password),
-        tipo="usuario"
+        user_role_id=2
     )
 
     # Usa o repositório para salvar no banco

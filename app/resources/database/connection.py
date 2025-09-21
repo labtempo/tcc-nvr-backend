@@ -1,10 +1,6 @@
 import os
 from sqlmodel import create_engine, select, SQLModel, Session
 from dotenv import load_dotenv
-from app.domain.user import User
-from app.domain.camera import Camera
-from app.domain.user_role import User_Role
-from app.domain.system_settings import System_Setting
 from app.domain.user_role import User_Role, UserRoleEnum
 load_dotenv()
 
