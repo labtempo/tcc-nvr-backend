@@ -7,17 +7,15 @@ hlsAddress: :8888
 
 authMethod: internal
 authInternalUsers:
-  # Utilizador dedicado para a sua API de backend
   - user: 'api-backend'
-    pass: 'UMA_SENHA_FORTE_E_SECRETA_AQUI' # Use uma senha forte!
+    pass: 'UMA_SENHA_FORTE_E_SECRETA_AQUI' 
     permissions:
       - action: api
 
-  # Permissões genéricas para clientes que vão publicar/ler streams
   - user: any
     pass:
     permissions:
       - action: publish
-        path: '~^.*$' # Usar '~^.*$' para permitir todos os paths é mais explícito
+        path: '~^.*$' 
       - action: read
         path: '~^.*$'
