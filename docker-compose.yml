@@ -13,18 +13,38 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: tcc-mediamtx
+    restart: unless-stopped
+    ports:
+      - "1935:1935"
+      - "8554:8554" 
+      - "8888:8888"
+      - "9997:9997" 
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml  
+    
   api:
     build: .
     container_name: tcc-api
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    working_dir: /app
     ports:
       - "8000:8000"
     volumes:
       - .:/app
     depends_on:
       - db
+      - mediamtx 
     environment:
       DATABASE_URL: postgresql://tcc_usr:tcc_pwd@db:5432/tcc_db
+      MEDIA_MTX_HOST: http://mediamtx
+      CONTROL_API_PORT: 9997
+      HLS_PORT: 8888
+      WEBRTC_PORT: 8889
+      MEDIAMTX_API_USER: 'api-backend'
+      MEDIAMTX_API_PASS: 'UMA_SENHA_FORTE_E_SECRETA_AQUI'
 
 volumes:
   postgres_data:
