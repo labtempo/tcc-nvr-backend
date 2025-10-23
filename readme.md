@@ -3,6 +3,15 @@
 ## Sobre o Sistema
 
 API para controle de acesso com autenticação JWT. Feita com FastAPI para gerenciar usuários e permissões.
+Python versão 3.11
+Até o momento, para rodar localmente é necessário criar um arquivo .env com os seguintes parâmetros
+
+DATABASE_URL="postgresql://tcc_usr:tcc_pwd@db:5432/tcc_db"
+
+MEDIA_MTX_HOST="http://127.0.0.1:"
+CONTROL_API_PORT="9997"
+HLS_PORT="8888"
+WEBRTC_PORT="8889"
 
 ## Instalação
 
