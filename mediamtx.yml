@@ -4,6 +4,12 @@ apiAddress: :9997
 
 hls: yes
 hlsAddress: :8888
+webrtc: yes
+webrtcAddress: :8889
+webrtcICEUDPMuxAddress: :8189
+webrtcAdditionalHosts: [ "127.0.0.1" ]
+webrtcICEServers2:
+  - url: stun:stun.l.google.com:19302
 
 authMethod: internal
 authInternalUsers:
