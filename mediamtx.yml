@@ -1,16 +1,25 @@
-# mediamtx.yml (versão segura e recomendada)
 api: yes
 apiAddress: :9997
 
 hls: yes
 hlsAddress: :8888
+
 webrtc: yes
 webrtcAddress: :8889
-webrtcICEUDPMuxAddress: :8189
+webrtcLocalUDPAddress: :8189
 webrtcAdditionalHosts: [ "127.0.0.1" ]
 webrtcICEServers2:
   - url: stun:stun.l.google.com:19302
 
+pathDefaults:
+    record: yes
+    recordFormat: fmp4
+    recordPath: /recordings/%path/%Y-%m-%d/%Y-%m-%d_%H-%M-%S-%f
+    recordSegmentDuration: 60s
+    runOnRecordSegmentComplete: >
+      sh -c 'curl -s -X POST "http://api:8000/api/v1/webhooks/recording-ready" \
+      -H "Content-Type: application/json" \
+      -d "{\"path\": \"$MTX_PATH\", \"segment_path\": \"$MTX_SEGMENT_PATH\", \"duration_seconds\": $MTX_SEGMENT_DURATION}"'
 authMethod: internal
 authInternalUsers:
   - user: 'api-backend'
@@ -25,3 +34,4 @@ authInternalUsers:
         path: '~^.*$' 
       - action: read
         path: '~^.*$'
+      
