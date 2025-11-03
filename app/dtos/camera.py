@@ -12,3 +12,4 @@ class CamData(CamCreate):
     id: int
     name: str
     rtsp_url: str
+    visualisation_url_hls: str 

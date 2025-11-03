@@ -1,18 +1,31 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from app.controller.users import router as users
-from app.controller.camera import router as cameras  
-from app.resources.database.connection import create_db_and_tables, seed_user_roles
+from contextlib import asynccontextmanager
 from datetime import datetime
 
-app = FastAPI(title="API - OPERAÇÕES", version="1.0")
+from app.controller.usersController import router as users
+from app.controller.cameraController import router as cameras  
+from app.resources.database.connection import create_db_and_tables, seed_user_roles
 
-#-------------//-------------//
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_db_and_tables()
+    seed_user_roles()
+    
+    yield
+    pass
+
+app = FastAPI(title="API - OPERAÇÕES", version="1.0", lifespan=lifespan)
 
 origins = [
-    "http://localhost:4200",  
+   "http://localhost:4200",  
     "http://127.0.0.1:4200",  
+
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 app.add_middleware(
@@ -22,15 +35,9 @@ app.add_middleware(
     allow_methods=["*"],  
     allow_headers=["*"], 
 )
-#----------//-----------------//
 
 app.include_router(users, prefix="/api/v1") 
 app.include_router(cameras, prefix="/api/v1")
-
-@app.on_event("startup")
-def on_startup():
-    create_db_and_tables()
-    seed_user_roles()
 
 @app.get("/")
 async def home():

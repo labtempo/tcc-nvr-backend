@@ -12,19 +12,66 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks: 
+      - tcc-network
+    # --- HEALTCHECK ADICIONADO ---
+    # Verifica se o Postgres está pronto para aceitar conexões
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tcc_usr -d tcc_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: tcc-mediamtx
+    restart: unless-stopped
+    ports:
+      - "1935:1935"
+      - "8554:8554"
+      - "8888:8888"
+      - "9997:9997"
+      - "8889:8889"
+      - "8189:8189/udp"
+    volumes:
+      # Lembre-se: ./mediamtx.yml DEVE existir
+      - ./mediamtx.yml:/mediamtx.yml
+      - ./recordings:/recordings
+    networks:
+      - tcc-network
 
   api:
     build: .
     container_name: tcc-api
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    working_dir: /app
     ports:
       - "8000:8000"
     volumes:
       - .:/app
+      - ./recordings:/recordings
+    # --- 'depends_on' MELHORADO ---
+    # Agora espera o 'db' estar saudável (healthy) antes de iniciar
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      mediamtx:
+        condition: service_started
     environment:
       DATABASE_URL: postgresql://tcc_usr:tcc_pwd@db:5432/tcc_db
+      MEDIA_MTX_HOST: http://mediamtx
+      CONTROL_API_PORT: 9997
+      HLS_PORT: 8888
+      WEBRTC_PORT: 8889
+      # Lembre-se: Estas credenciais devem ser as mesmas dentro do mediamtx.yml
+      MEDIAMTX_API_USER: 'api-backend'
+      MEDIAMTX_API_PASS: 'UMA_SENHA_FORTE_E_SECRETA_AQUI'
+    networks: 
+      - tcc-network 
 
 volumes:
   postgres_data:
+
+networks:
+  tcc-network:
+    driver: bridge
