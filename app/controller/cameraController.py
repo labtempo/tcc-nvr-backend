@@ -1,24 +1,31 @@
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, Query, status, Depends
+from fastapi.responses import StreamingResponse
+import httpx
 from sqlmodel import Session
+from app.domain.user import User
 from app.dtos.camera import CamCreate, CamData
 from app.domain.camera import Camera
 from app.resources.database.connection import get_session
+from app.security.security import create_temp_playback_token, decode_temp_playback_token, pegar_usuario_atual
 from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario
 from typing import List
 from app.resources.settings.config import settings 
 from app.service.mediaMtx_services import media_mtx_service 
+from starlette.background import BackgroundTask
 
 router = APIRouter()
 
 @router.post("/camera", response_model=CamData)
 async def adicionar_camera(
     dados_camera: CamCreate,
-    session: Session = Depends(get_session)
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
 ):
+    dados_camera.created_by_user_id = current_user.id
     try:
         nova_camera = await criar_camera(dados_camera, session)
     
-        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}/index.m3u8"
+        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}"
 
         return CamData(
             id=nova_camera.id,
@@ -39,12 +46,15 @@ async def adicionar_camera(
         )
 
 @router.get("/camera/{camera_id}", response_model=CamData)
-async def obter_camera(camera_id: int, session: Session = Depends(get_session)):
+async def obter_camera(camera_id: int, session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+    ):
     camera = get_camera(camera_id, session)
-    if not camera:
+
+    if not camera or camera.created_by_user_id != current_user.id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Câmera não encontrada"
+            detail="Câmera não encontrada ou não autorizada"
         )
     
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
@@ -61,7 +71,9 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session)):
     )
 
 @router.get("/camera/user/{user_id}", response_model=List[CamData])
-async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_session)):
+async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+    ):
     cameras = listar_cameras_por_usuario(user_id, session)
     return [
         CamData(
@@ -81,10 +93,13 @@ async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_se
 async def atualizar_camera(
     camera_id: int,
     dados_camera: CamCreate,
-    session: Session = Depends(get_session)
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
 ):
+    dados_camera.created_by_user_id = current_user.id
     camera = get_camera(camera_id, session)
-    if not camera:
+
+    if not camera or camera.created_by_user_id != current_user.id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Câmera não encontrada"
@@ -120,3 +135,63 @@ async def atualizar_camera(
         updated_at=camera.updated_at,
         visualisation_url_hls=hls_url 
     )
+
+@router.get("/camera/{camera_id}/recordings")
+async def get_camera_recordings(
+    camera_id: int,
+    start: str | None = None,
+    end: str | None = None,
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+    camera = get_camera(camera_id, session)
+    if not camera or camera.created_by_user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+
+    mediamtx_url = f"{settings.media_mtx_playback_url}/list"
+    auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
+    params = {"path": camera.path_id}
+    if start:
+        params["start"] = start
+    if end:
+        params["end"] = end
+
+    async with httpx.AsyncClient(auth=auth) as client:
+        try:
+            response = await client.get(mediamtx_url, params=params)
+            response.raise_for_status() 
+            return response.json() 
+        except httpx.ConnectError:
+            raise HTTPException(status_code=503, detail="Servidor de mídia indisponível")
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 404:
+                 return [] 
+            raise HTTPException(status_code=e.response.status_code, detail=f"Erro no MediaMTX: {e.response.text}")
+
+
+@router.get("/camera/{camera_id}/playback-url")
+async def get_playback_url(
+    camera_id: int,
+    start: str,
+    duration: float, 
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+    camera = get_camera(camera_id, session)
+    if not camera or camera.created_by_user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+
+    token_data = {
+        "sub": str(current_user.id), 
+        "path": camera.path_id,      
+        "start": start,             
+        "duration": duration         
+    }
+    
+    temp_token = create_temp_playback_token(data=token_data)
+    
+    playback_url = f"/api/v1/playback/video?token={temp_token}"
+    
+    return {"playbackUrl": playback_url}
+
+        
