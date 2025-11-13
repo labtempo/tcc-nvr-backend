@@ -20,7 +20,6 @@ async def criar_gravacao(
     
     nova_gravacao = Record(
         camera_id=dados_gravacao.camera_id,
-        stream_path=dados_gravacao.stream_path,
         nome_arquivo=dados_gravacao.nome_arquivo,
         url_acesso=url_acesso,
         duracao_segundos=dados_gravacao.duracao_segundos,
@@ -28,7 +27,7 @@ async def criar_gravacao(
         data_fim_segmento=dados_gravacao.data_fim_segmento
     )
     
-    
+
     session.add(nova_gravacao)
     session.commit()
     session.refresh(nova_gravacao)
