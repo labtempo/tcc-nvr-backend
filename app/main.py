@@ -3,9 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from datetime import datetime
 
+from app.controller import recordController, videoController
 from app.controller.usersController import router as users
 from app.controller.cameraController import router as cameras  
 from app.resources.database.connection import create_db_and_tables, seed_user_roles
+from app.controller import playbackController
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -38,6 +40,9 @@ app.add_middleware(
 
 app.include_router(users, prefix="/api/v1") 
 app.include_router(cameras, prefix="/api/v1")
+app.include_router(recordController.router, prefix="/api/v1", tags=["records"])
+app.include_router(videoController.router)
+app.include_router(playbackController.router, prefix="/api/v1")
 
 @app.get("/")
 async def home():

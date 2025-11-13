@@ -6,26 +6,17 @@ from fastapi import HTTPException, Depends, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlmodel import Session, select
 from app.domain.user import User
+from app.resources.settings.config import settings
 from app.resources.database.connection import get_session
 from datetime import datetime, timedelta, timezone
 from app.repository.login_repository import buscar_usuario_email
+from jose import JWTError, jwt
 
 # --- CONFIGS ---
 JWT_SECRET = "kjh87asd6f7asd6f87asd6f78asd6f8asd7f6asd78f6asd7f6"
 JWT_ALGORITHM = "HS256"
 TOKEN_EXPIRE_HOURS = 8
 security = HTTPBearer()
-
-# --- DADOS MOCK (DEPOIS VAI PARA O BANCO) ---
-#usuarios = {
-#    "admin@sistema.com": {
-#        "id": 1,
-#        "email": "admin@sistema.com",
-#        "nome": "Administrator",
-#        "senha_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
-#        "tipo": "admin"
-#    }
-#}
 
 # --- FUNÇÕES DE SEGURANÇA ---
 def criar_hash_senha(senha: str) -> str:
@@ -70,3 +61,36 @@ def fazer_login(email: str, senha: str, session: Session):
     if not verificar_senha(senha, user.password_hash):
         return None
     return user
+
+def create_temp_playback_token(data: dict) -> str:
+    """
+    Cria um JWT de curta duração para autorizar o stream de playback.
+    """
+    to_encode = data.copy()
+    expire = datetime.now(timezone.utc) + timedelta(
+        seconds=settings.PLAYBACK_TOKEN_EXPIRE_SECONDS
+    )
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(
+        to_encode, 
+        settings.PLAYBACK_TOKEN_SECRET_KEY, 
+        algorithm=settings.PLAYBACK_TOKEN_ALGORITHM
+    )
+    return encoded_jwt
+
+def decode_temp_playback_token(token: str) -> dict:
+    """
+    Valida o token de playback temporário.
+    """
+    try:
+        payload = jwt.decode(
+            token, 
+            settings.PLAYBACK_TOKEN_SECRET_KEY, 
+            algorithms=[settings.PLAYBACK_TOKEN_ALGORITHM]
+        )
+        return payload
+    except JWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token de playback inválido ou expirado"
+        )
