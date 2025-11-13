@@ -20,7 +20,6 @@ async def criar_gravacao(
     
     nova_gravacao = Record(
         camera_id=dados_gravacao.camera_id,
-        stream_path=dados_gravacao.stream_path,
         nome_arquivo=dados_gravacao.nome_arquivo,
         url_acesso=url_acesso,
         duracao_segundos=dados_gravacao.duracao_segundos,
