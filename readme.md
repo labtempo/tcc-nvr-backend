@@ -19,196 +19,125 @@ WEBRTC_PORT="8889"
 pip install -r requirements.txt
 ```
 
-## Rodando
+## Rodando com Docker (Recomendado)
+
+O projeto já está configurado com `docker-compose` para rodar a API, o Banco de Dados (PostgreSQL) e o MediaMTX (Servidor de Streaming) juntos.
+
+1.  **Iniciar os serviços:**
+    ```bash
+    docker-compose up --build
+    ```
+    Aguarde até ver os logs da API na porta 8000.
+
+    - **API**: http://localhost:8000
+    - **Docs**: http://localhost:8000/docs
+    - **MediaMTX**: http://localhost:8888 (API de controle na porta 9997)
+
+## Simulando Câmeras (Sem Hardware)
+
+Para testar o sistema sem ter câmeras reais, você pode simular streams RTSP usando **Docker e FFMPEG**. Isso cria um "sinal de teste" infinito que o sistema processa como se fosse uma câmera real.
+
+### Opção 1: Gerar Sinal de Teste (Recomendado)
+Este comando cria uma câmera falsa transmitindo um relógio e barras de cores. Você pode rodar múltiplos terminais alterando o final da URL (`/cam1`, `/cam2`, etc) para simular várias câmeras.
 
 ```bash
-uvicorn app.main:app --reload
+# Execute em um novo terminal:
+docker run --rm -it jrottenberg/ffmpeg:4.1-alpine -re -f lavfi -i "testsrc=size=1280x720:rate=30" -f rtsp -rtsp_transport tcp rtsp://host.docker.internal:8554/cam1
 ```
 
-- **API**: http://localhost:8000
-- **Docs**: http://localhost:8000/docs
+**Como Cadastrar essa Câmera:**
+Use a URL RTSP: `rtsp://localhost:8554/cam1` (Sim, use `localhost` na hora de cadastrar na API, pois o MediaMTX vai ler de si mesmo/rede local).
+
+### Opção 2: Links Públicos (Instáveis)
+Você pode tentar usar links públicos, mas eles ficam offline com frequência.
+- `rtsp://stream.strba.sk:1935/strba/VYHLAD_JAZERO.stream`
+- `rtsp://rtsp.stream/pattern` (Requer cadastro as vezes)
+
+## Primeiro Usuário Admin
+
+Após rodar a aplicação pela primeira vez, o banco estará vazio. Você deve criar o usuário administrador para conseguir logar.
+
+Execute o comando abaixo em um **novo terminal** para inserir o usuário `admin@sistema.com` (senha `admin123`) diretamente no banco dockerizado:
+
+```bash
+docker exec -it tcc-postgres psql -U tcc_usr -d tcc_db -c "INSERT INTO public.\"user\" (email, password_hash, full_name, user_role_id, is_active, created_at, updated_at) VALUES ('admin@sistema.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'Administrador', 1, true, NOW(), NOW());"
+```
 
 ## User Roles
 
 Os tipos de usuário (`admin`, `usuario`) são criados automaticamente no banco ao iniciar a API.
 
-## Primeiro Usuário Admin
+## Como Testar (Fluxo Completo)
 
-Após rodar a aplicação pela primeira vez, o banco estará vazio.  
-**Você precisa inserir manualmente o primeiro usuário admin para conseguir logar e criar outros usuários.**
+Para testar, simularemos o fluxo completo: Login -> Adicionar Câmera -> Visualizar.
+Você precisará de um link RTSP (ex: `rtsp://stream.strba.sk:1935/strba/VYHLAD_JAZERO.stream` ou um link local).
 
-### Gerando o hash da senha
-
-No terminal Python:
-```python
-from app.security.security import criar_hash_senha
-print(criar_hash_senha("admin123"))
+### 1. Fazer Login (Obter Token)
+```bash
+curl -X POST "http://localhost:8000/api/v1/login" \
+     -H "Content-Type: application/json" \
+     -d "{\"email\": \"admin@sistema.com\", \"password\": \"admin123\"}"
 ```
-Copie o hash gerado.
+**Copie o `access_token`** da resposta.
 
-### Inserindo o usuário admin no banco (exemplo para PostgreSQL)
+### 2. Cadastrar uma Câmera
+Substitua `<SEU_TOKEN>` pelo token copiado:
 
-```sql
-INSERT INTO public."user"
-(email, password_hash, full_name, user_role_id, is_active, created_at, updated_at)
-VALUES (
-  'admin@sistema.com',
-  'HASH_GERADO_AQUI',
-  'Administrador',
-  1,
-  true,
-  NOW(),
-  NOW()
-);
+```bash
+curl -X POST "http://localhost:8000/api/v1/camera" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer <SEU_TOKEN>" \
+     -d "{
+           \"name\": \"Câmera Teste\",
+           \"rtsp_url\": \"rtsp://stream.strba.sk:1935/strba/VYHLAD_JAZERO.stream\",
+           \"is_recording\": false
+         }"
 ```
 
-## Tecnologias
-
-- FastAPI (framework web)
-- JWT (tokens de autenticação)
-- SHA256 (hash das senhas)
-- Pydantic (validação de dados)
-
-## Como Funciona
-
-### Usuários
-Cada usuário tem:
-- **ID**: número único
-- **Email**: para login
-- **Full Name**: nome completo
-- **Senha**: guardada com hash
-- **Tipo**: "admin" ou "usuario"
-
-### Autenticação
-1. Faz login com email/senha
-2. Recebe um token JWT
-3. Usa o token nas próximas requisições
-4. Token dura 8 horas
-
-## Usuários de Teste
-
-**Administrador:**
-- Email: admin@sistema.com
-- Senha: admin123
+### 3. Visualizar o Vídeo
+A resposta do cadastro retornará um campo `visualisation_url_hls` (ex: `http://localhost:8888/camera_teste/index.m3u8`).
+1. Abra um player HLS online (ex: [https://hls-js.netlify.app/demo/](https://hls-js.netlify.app/demo/)).
+2. Cole a URL HLS.
+3. Dê Play. Se o vídeo aparecer, o sistema está funcionando!
 
 ## Endpoints
 
-Todos os endpoints estão sob o prefixo `/api/v1` (exemplo: `/api/v1/login`, `/api/v1/usuarios`).
+Todos os endpoints estão sob o prefixo `/api/v1`.
 
-### Públicos (não precisa token)
+### 🔐 Autenticação & Usuários
 
-#### POST /login
-Fazer login
-```json
-// Enviar:
-{
-  "email": "admin@sistema.com",
-  "password": "admin123"
-}
+| Método | Endpoint | Descrição | Permissão |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/v1/login` | Realiza login e retorna o Token JWT. | Público |
+| **GET** | `/api/v1/perfil` | Retorna dados do usuário logado. | Usuário |
+| **GET** | `/api/v1/usuarios` | Lista todos os usuários cadastrados. | **Admin** |
+| **POST** | `/api/v1/usuarios` | Cria um novo usuário. | **Admin** |
+| **GET** | `/api/v1/area-restrita` | Endpoint de teste para validação de token. | Usuário |
 
-// Recebe:
-{
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
-  "token_type": "bearer"
-}
-```
+### 📷 Câmeras
 
-### Protegidos (precisa token)
+| Método | Endpoint | Descrição | Params/Body |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/v1/camera` | Cadastra uma nova câmera. | JSON com `name`, `rtsp_url`, etc. |
+| **GET** | `/api/v1/camera/{id}` | Obtém detalhes de uma câmera específica. | `id` da câmera na URL |
+| **PUT** | `/api/v1/camera/{id}` | Atualiza dados de uma câmera (nome, rtsp, etc). | JSON com dados atualizados |
+| **GET** | `/api/v1/camera/user/{uid}` | Lista todas as câmeras de um usuário. | `uid` (Use o ID do usuário logado) |
 
-#### GET /perfil
-Ver seus dados
-```bash
-# Header necessário:
-Authorization: Bearer SEU_TOKEN_AQUI
-```
-```json
-{
-  "id": 1,
-  "email": "admin@sistema.com",
-  "full_name": "Administrador",
-  "user_role": 1
-}
-```
+### 🎬 Gravações e Playback
 
-### Administrativos (só admin)
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **GET** | `/api/v1/camera/{id}/recordings` | Lista intervalos (segmentos) de gravação disponíveis. |
+| **GET** | `/api/v1/camera/{id}/playback-url` | Gera um **token temporário** e retorna a URL para assistir o vídeo. |
+| **GET** | `/api/v1/playback/video` | **Stream de Vídeo**. Usado pelo player com o token gerado acima. |
+| **POST** | `/api/v1/record` | (Interno/Webhook) Cria registro de gravação no banco. |
 
-#### GET /usuarios
-Listar todos usuários
-```json
-[
-  {
-    "id": 1,
-    "email": "admin@sistema.com",
-    "full_name": "Administrador", 
-    "user_role": 1
-  },
-  {
-    "id": 2,
-    "email": "joao@sistema.com",
-    "full_name": "João Silva",
-    "user_role": 2
-  }
-]
-```
+### 📦 Outros
 
-#### POST /usuarios
-Criar novo usuário
-```json
-// Enviar:
-{
-  "email": "maria@sistema.com",
-  "password": "senha123",
-  "full_name": "Maria Santos"
-}
-
-// Recebe:
-{
-  "msg": "Usuário maria@sistema.com criado!",
-  "id": 3
-}
-```
-
-## Códigos de Erro
-
-- **200**: Deu certo
-- **400**: Dados errados (ex: email já existe)
-- **401**: Não está logado ou senha errada
-- **403**: Não tem permissão (precisa ser admin)
-
-## Como Testar
-
-### Com cURL
-
-**Login:**
-```bash
-curl -X POST "http://localhost:8000/api/v1/login" \
-  -H "Content-Type: application/json" \
-  -d '{"email":"admin@sistema.com","password":"admin123"}'
-```
-
-**Usar token:**
-```bash
-curl -X GET "http://localhost:8000/api/v1/perfil" \
-  -H "Authorization: Bearer SEU_TOKEN_AQUI"
-```
-
-### Com Python
-
-```python
-import requests
-
-# Login
-resp = requests.post('http://localhost:8000/api/v1/login', json={
-    'email': 'admin@sistema.com',
-    'password': 'admin123'
-})
-token = resp.json()['access_token']
-
-# Usar token
-perfil = requests.get('http://localhost:8000/api/v1/perfil', 
-    headers={'Authorization': f'Bearer {token}'})
-print(perfil.json())
-```
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **GET** | `/` | Rota raiz, retorna status do sistema. |
+| **GET** | `/status` | Retorna status detalhado e horário do servidor. |
 
 ## Problemas Comuns
 
