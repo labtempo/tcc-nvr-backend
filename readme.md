@@ -38,11 +38,16 @@ O projeto já está configurado com `docker-compose` para rodar a API, o Banco d
 Para testar o sistema sem ter câmeras reais, você pode simular streams RTSP usando **Docker e FFMPEG**. Isso cria um "sinal de teste" infinito que o sistema processa como se fosse uma câmera real.
 
 ### Opção 1: Gerar Sinal de Teste (Recomendado)
-Este comando cria uma câmera falsa transmitindo um relógio e barras de cores. Você pode rodar múltiplos terminais alterando o final da URL (`/cam1`, `/cam2`, etc) para simular várias câmeras.
+Este comando cria uma câmera falsa transmitindo um relógio e barras de cores. Use o script auxiliar para facilitar.
 
 ```bash
 # Execute em um novo terminal:
-docker run --rm -it jrottenberg/ffmpeg:4.1-alpine -re -f lavfi -i "testsrc=size=1280x720:rate=30" -f rtsp -rtsp_transport tcp rtsp://host.docker.internal:8554/cam1
+./scripts/simulate_camera.sh cam1
+```
+
+Para criar múltiplas câmeras, basta passar nomes diferentes:
+```bash
+./scripts/simulate_camera.sh cam2
 ```
 
 **Como Cadastrar essa Câmera:**

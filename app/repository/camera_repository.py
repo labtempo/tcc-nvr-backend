@@ -19,3 +19,13 @@ def create_camera(camera: Camera, session: Session) -> Camera:
 def get_cameras_by_user_id(user_id: int, session: Session) -> List[Camera]:
     statement = select(Camera).where(Camera.created_by_user_id == user_id)
     return session.exec(statement).all()
+
+def delete_camera(camera: Camera, session: Session) -> bool:
+    """Deleta uma câmera do banco de dados"""
+    try:
+        session.delete(camera)
+        session.commit()
+        return True
+    except Exception as e:
+        session.rollback()
+        raise e

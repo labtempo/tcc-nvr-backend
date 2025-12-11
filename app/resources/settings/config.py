@@ -9,6 +9,12 @@ class Settings(BaseSettings):
     WEBRTC_PORT: str
     MEDIAMTX_API_USER: str
     MEDIAMTX_API_PASS: str
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+    
+    class Config:
+        env_file = ".env"
     MEDIA_MTX_PLAYBACK_PORT: int = 9996
     PLAYBACK_TOKEN_SECRET_KEY: str = "3a9f4b2a8e1c7d6f5b9a2e8c1d7f6b5a4e3c2b1a0d9f8e7c6b5a4d3e2f1c0b9a" 
     PLAYBACK_TOKEN_ALGORITHM: str = "HS256"
