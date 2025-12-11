@@ -100,6 +100,45 @@ A resposta do cadastro retornará um campo `visualisation_url_hls` (ex: `http://
 2. Cole a URL HLS.
 3. Dê Play. Se o vídeo aparecer, o sistema está funcionando!
 
+## Endpoints
+
+Todos os endpoints estão sob o prefixo `/api/v1`.
+
+### 🔐 Autenticação & Usuários
+
+| Método | Endpoint | Descrição | Permissão |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/v1/login` | Realiza login e retorna o Token JWT. | Público |
+| **GET** | `/api/v1/perfil` | Retorna dados do usuário logado. | Usuário |
+| **GET** | `/api/v1/usuarios` | Lista todos os usuários cadastrados. | **Admin** |
+| **POST** | `/api/v1/usuarios` | Cria um novo usuário. | **Admin** |
+| **GET** | `/api/v1/area-restrita` | Endpoint de teste para validação de token. | Usuário |
+
+### 📷 Câmeras
+
+| Método | Endpoint | Descrição | Params/Body |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/v1/camera` | Cadastra uma nova câmera. | JSON com `name`, `rtsp_url`, etc. |
+| **GET** | `/api/v1/camera/{id}` | Obtém detalhes de uma câmera específica. | `id` da câmera na URL |
+| **PUT** | `/api/v1/camera/{id}` | Atualiza dados de uma câmera (nome, rtsp, etc). | JSON com dados atualizados |
+| **GET** | `/api/v1/camera/user/{uid}` | Lista todas as câmeras de um usuário. | `uid` (Use o ID do usuário logado) |
+
+### 🎬 Gravações e Playback
+
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **GET** | `/api/v1/camera/{id}/recordings` | Lista intervalos (segmentos) de gravação disponíveis. |
+| **GET** | `/api/v1/camera/{id}/playback-url` | Gera um **token temporário** e retorna a URL para assistir o vídeo. |
+| **GET** | `/api/v1/playback/video` | **Stream de Vídeo**. Usado pelo player com o token gerado acima. |
+| **POST** | `/api/v1/record` | (Interno/Webhook) Cria registro de gravação no banco. |
+
+### 📦 Outros
+
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| **GET** | `/` | Rota raiz, retorna status do sistema. |
+| **GET** | `/status` | Retorna status detalhado e horário do servidor. |
+
 ## Problemas Comuns
 
 ### "Token inválido"
