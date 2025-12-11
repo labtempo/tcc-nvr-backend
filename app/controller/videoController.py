@@ -7,6 +7,6 @@ router = APIRouter(
 
 router.mount(
     "/api/v1/videos", 
-    StaticFiles(directory="/recordings", html=False), 
+    StaticFiles(directory="recordings", html=False), 
     name="videos"
 )

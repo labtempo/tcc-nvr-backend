@@ -62,4 +62,34 @@ class MediaMtxService:
 
         raise TimeoutError(f"O path '{path_name}' não ficou pronto no MediaMTX a tempo.")
 
+    async def create_camera_path(self, path_name: str, rtsp_url: str):
+        """Create a camera path in MediaMTX"""
+        add_endpoint = f"/v3/config/paths/add/{path_name}"
+        
+        if rtsp_url.lower().startswith("publisher"):
+            payload: Dict[str, Any] = {"source": "publisher"}
+        else:
+            payload = {"source": rtsp_url}
+
+        try:
+            response = await self.command_client.post(add_endpoint, json=payload)
+            response.raise_for_status()
+        except httpx.RequestError as e:
+            raise Exception(f"Falha de comunicação ao criar path no MediaMTX: {e}")
+        except httpx.HTTPStatusError as e:
+            raise Exception(f"MediaMTX rejeitou a criação do path '{path_name}': {e.response.status_code} - {e.response.text}")
+
+    async def delete_camera_path(self, path_name: str):
+        """Delete a camera path in MediaMTX"""
+        delete_endpoint = f"/v3/config/paths/delete/{path_name}"
+        try:
+            response = await self.command_client.post(delete_endpoint)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 404:
+                print(f"INFO: Path '{path_name}' já não existia no MediaMTX.")
+            else:
+                raise Exception(f"MediaMTX falhou ao deletar path '{path_name}': {e.response.status_code} - {e.response.text}")
+        except httpx.RequestError as e:
+             raise Exception(f"Falha de comunicação ao deletar path no MediaMTX: {e}")
 media_mtx_service = MediaMtxService()

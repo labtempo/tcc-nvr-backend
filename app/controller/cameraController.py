@@ -7,7 +7,7 @@ from app.dtos.camera import CamCreate, CamData
 from app.domain.camera import Camera
 from app.resources.database.connection import get_session
 from app.security.security import create_temp_playback_token, decode_temp_playback_token, pegar_usuario_atual
-from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario
+from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario, deletar_camera
 from typing import List
 from app.resources.settings.config import settings 
 from app.service.mediaMtx_services import media_mtx_service 
@@ -194,4 +194,35 @@ async def get_playback_url(
     
     return {"playbackUrl": playback_url}
 
-        
+@router.delete("/camera/{camera_id}")
+async def deletar_camera_endpoint(
+    camera_id: int,
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+    """Endpoint para deletar uma câmera"""
+    camera = get_camera(camera_id, session)
+    
+    if not camera or camera.created_by_user_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Câmera não encontrada ou não autorizada"
+        )
+    
+    try:
+        sucesso = await deletar_camera(camera_id, session)
+        if sucesso:
+            return {"message": "Câmera deletada com sucesso"}
+        else:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Erro inesperado ao deletar câmera"
+            )
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro inesperado: {str(e)}"
+        )
+

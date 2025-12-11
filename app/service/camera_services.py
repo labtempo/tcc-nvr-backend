@@ -2,7 +2,7 @@ from sqlmodel import Session
 from fastapi import HTTPException, status
 from app.domain.camera import Camera
 from app.dtos.camera import CamCreate
-from app.repository.camera_repository import create_camera, get_cameras_by_user_id, get_camera_by_name, get_camera_by_id
+from app.repository.camera_repository import create_camera, get_cameras_by_user_id, get_camera_by_name, get_camera_by_id, delete_camera
 from typing import List
 
 async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
@@ -45,6 +45,33 @@ def get_camera(camera_id: int, session: Session) -> Camera:
         )
     return get_camera_by_id(camera_id, session)
 
+async def deletar_camera(camera_id: int, session: Session) -> bool:
+    """Deleta uma câmera e seu path no MediaMTX"""
+    camera = get_camera_by_id(camera_id, session)
+    if not camera:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Câmera não encontrada."
+        )
+    
+    # Primeiro tenta deletar o path do MediaMTX
+    from app.service.mediaMtx_services import media_mtx_service
+    
+    try:
+        await media_mtx_service.delete_camera_path(camera.path_id)
+    except Exception as e:
+        print(f"AVISO: Erro ao deletar path do MediaMTX: {e}")
+        # Continua com a deleção no banco mesmo se falhar no MediaMTX
+    
+    # Deleta a câmera do banco de dados
+    try:
+        delete_camera(camera, session)
+        return True
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao deletar câmera do banco de dados: {e}"
+        )
 
 def listar_cameras_por_usuario(user_id: int, session: Session) -> List[Camera]:
     return get_cameras_by_user_id(user_id, session)
