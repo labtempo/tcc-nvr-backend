@@ -14,7 +14,8 @@ webrtcICEServers2:
 playback: yes
 playbackAddress: :9996
 
-pathDefaults:
+paths:
+  all:
     record: yes
     recordFormat: fmp4
     recordPath: /recordings/%path/%Y-%m-%d_%H-%M-%S-%f
@@ -27,21 +28,21 @@ authInternalUsers:
     permissions:
       - action: api
       - action: read        
-        path: '~^.*$'
+        path: ~^.*$
       - action: playback   
-        path: '~^.*$'
+        path: ~^.*$
 
   - user: 'debug'
     pass: 'debug'
     permissions:
       - action: playback   
-        path: '~^.*$'
+        path: ~^.*$
 
   - user: any
     pass:
     permissions:
       - action: publish
-        path: '~^.*$' 
+        path: ~^.*$ 
       - action: read
-        path: '~^.*$'
+        path: ~^.*$
       
