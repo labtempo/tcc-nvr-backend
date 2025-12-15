@@ -40,15 +40,13 @@ class MediaMtxService:
         encoded_path_name = urllib.parse.quote(path_name, safe='')
         
         add_endpoint = f"/v3/config/paths/add/{encoded_path_name}"
+        patch_endpoint = f"/v3/config/paths/patch/{encoded_path_name}"  # Added
         get_endpoint = f"/v3/paths/get/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
         # Tentar limpar path antigo se existir (Blind Delete)
-        try:
-            await self.command_client.post(delete_endpoint)
-        except (httpx.RequestError, httpx.HTTPStatusError):
-            pass 
-
+        # REMOVED Blind Delete from here - we want to try PATCH first
+        
         if rtsp_url.lower().startswith("publisher"):
             payload: Dict[str, Any] = {"source": "publisher"}
         else:
@@ -61,7 +59,46 @@ class MediaMtxService:
              payload["recordSegmentDuration"] = "10s"
              payload["recordDeleteAfter"] = "24h"
 
-        print(f"INFO: Enviando comando de criação para o path '{path_name}' com payload: {payload}")
+        print(f"INFO: Enviando comando de criação (PATCH/ADD) para o path '{path_name}' com payload: {payload}")
+
+        # 1. Tentar Atualizar (PATCH) - Atomic Update / Upsert se já existir
+        try:
+            print(f"INFO: Tentando assumir path '{path_name}' via PATCH...")
+            response = await self.command_client.patch(patch_endpoint, json=payload)
+            if response.status_code == 200:
+                print(f"SUCESSO: Path '{path_name}' existente foi atualizado/assumido via PATCH.")
+                # Se sucesso, pulamos direto para a verificação
+                max_retries = 10
+                delay = 0.5
+                print(f"INFO: Iniciando verificação de prontidão para o path '{path_name}'...")
+                for i in range(max_retries):
+                    try:
+                        response_get = await self.polling_client.get(get_endpoint)
+                        if response_get.status_code == 200:
+                            print(f"SUCESSO: Path '{path_name}' está ativo e pronto para conexão!")
+                            return True
+                    except httpx.RequestError as e:
+                        raise Exception(f"Falha de comunicação durante o polling do MediaMTX: {e}")
+                    
+                    print(f"INFO: Tentativa {i+1}/{max_retries}. Path '{path_name}' ainda não está pronto. Aguardando {delay}s...")
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2, 5)
+                raise TimeoutError(f"O path '{path_name}' não ficou pronto no MediaMTX a tempo.")
+
+            elif response.status_code != 404:
+                 # Erro real (ex: 400 Bad Request que não seja 'Not Found')
+                 print(f"INFO: PATCH falhou com {response.status_code}, tentando ADD...")
+            else:
+                 print(f"INFO: Path '{path_name}' não existe (404), prosseguindo para ADD...")
+        except httpx.RequestError as e:
+             print(f"WARN: Falha no PATCH ({e}), tentando ADD...")
+
+        # 2. Se PATCH falhou (404 ou erro), tentamos ADD com Retry Loop
+        # Blind delete antes de tentar criar novo
+        try:
+            await self.command_client.post(delete_endpoint)
+        except (httpx.RequestError, httpx.HTTPStatusError):
+            pass
         
         # Lógica de Retry com Kick
         last_error = None
@@ -120,6 +157,12 @@ class MediaMtxService:
                     except Exception as k_err:
                         print(f"ERRO ao tentar chutar cliente: {k_err}")
                     
+                    # Reforçar a exclusão da configuração antiga se existir
+                    try:
+                        await self.command_client.post(delete_endpoint)
+                    except (httpx.RequestError, httpx.HTTPStatusError):
+                        pass
+
                     wait_time = 0.5 if publisher_found else 1.0
                     print(f"INFO: Aguardando {wait_time}s antes de retentar (Tentativa {attempt+1}/20)...")
                     await asyncio.sleep(wait_time)
@@ -129,7 +172,7 @@ class MediaMtxService:
              except httpx.RequestError as e:
                  raise Exception(f"Falha de comunicação ao criar path no MediaMTX: {e}")
         
-        if last_error and attempt == 4: 
+        if last_error and attempt == 19: 
              raise Exception(f"Falha ao criar path '{path_name}' após retentativas: {last_error.response.text}")
 
         max_retries = 10
@@ -191,7 +234,7 @@ class MediaMtxService:
         # 2. Se PATCH falhou com 404, tentamos ADD (com lógica de retry e KICK)
         last_error = None
         for attempt in range(20):
-            # Tentar Deletar
+            # Tentar Deletar (Blind Delete inicial)
             try:
                 await self.command_client.post(delete_endpoint)
             except (httpx.RequestError, httpx.HTTPStatusError):
@@ -224,14 +267,15 @@ class MediaMtxService:
                                     source = item.get('source')
                                     if source and source.get('id'):
                                         client_id = source.get('id')
-                                        print(f"INFO: Encontrado publisher conflitante (ID {client_id}). Tentando desconectar...")
+                                        stype = source.get('type', 'rtspSession')
+                                        print(f"INFO: Encontrado publisher conflitante (ID {client_id}, Type {stype}). Tentando desconectar...")
                                         publisher_found = True
-                                        kick_endpoint = f"/v3/clients/delete/{client_id}"
+                                        
+                                        kick_endpoint = self._get_kick_endpoint(stype, client_id)
                                         try:
                                              await self.command_client.post(kick_endpoint)
                                         except httpx.HTTPStatusError as kick_err:
-                                             if kick_err.response.status_code == 404:
-                                                 await self.command_client.delete(kick_endpoint)
+                                             print(f"WARN: Falha ao chutar publisher: {kick_err}")
                                     
                                     # 2. Kick Readers (Visualizadores)
                                     readers = item.get('readers', [])
@@ -239,17 +283,24 @@ class MediaMtxService:
                                         print(f"INFO: Encontrados {len(readers)} leitores ativos no path. Tentando desconectar...")
                                         for reader in readers:
                                             reader_id = reader.get('id')
+                                            stype = reader.get('type', 'rtspSession')
                                             if reader_id:
-                                                kick_endpoint = f"/v3/clients/delete/{reader_id}"
+                                                kick_endpoint = self._get_kick_endpoint(stype, reader_id)
                                                 try:
                                                     await self.command_client.post(kick_endpoint)
                                                 except httpx.HTTPStatusError:
-                                                     await self.command_client.delete(kick_endpoint)
+                                                     pass
 
                                     break # Apenas um publisher por path normalmente
                     except Exception as k_err:
                         print(f"ERRO ao tentar chutar cliente: {k_err}")
                     
+                    # Reforçar a exclusão da configuração antiga se existir
+                    try:
+                        await self.command_client.post(delete_endpoint)
+                    except (httpx.RequestError, httpx.HTTPStatusError):
+                        pass
+
                     wait_time = 0.5 if publisher_found else 1.0
                     print(f"INFO: Aguardando {wait_time}s antes de retentar (Tentativa {attempt+1}/20)...")
                     await asyncio.sleep(wait_time)
@@ -259,7 +310,7 @@ class MediaMtxService:
             except httpx.RequestError as e:
                 raise Exception(f"Falha de comunicação no ADD: {e}")
 
-        if last_error:
+        if last_error: # No create_camera_path this implicitly handles return/exception
              raise Exception(f"Falha ao criar path '{path_name}' após retentativas: {last_error.response.text}")
         raise Exception(f"Falha ao criar path '{path_name}'.")
 

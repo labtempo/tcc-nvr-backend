@@ -12,7 +12,7 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
             detail="Já existe uma câmera com este nome."
         )
     
-    path_id = f"{camera_data.name.lower().replace(' ', '_')}"
+    path_id = f"live/{camera_data.name.lower().replace(' ', '_')}"
     
     from app.service.mediaMtx_services import media_mtx_service
     
