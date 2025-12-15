@@ -26,6 +26,7 @@ async def adicionar_camera(
         nova_camera = await criar_camera(dados_camera, session)
     
         hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}"
+        webrtc_url = f"{settings.media_mtx_webrtc_url}/{nova_camera.path_id}"
 
         return CamData(
             id=nova_camera.id,
@@ -35,7 +36,8 @@ async def adicionar_camera(
             created_by_user_id=nova_camera.created_by_user_id,
             created_at=nova_camera.created_at,
             updated_at=nova_camera.updated_at,
-            visualisation_url_hls=hls_url
+            visualisation_url_hls=hls_url,
+            visualisation_url_webrtc=webrtc_url
         )
     except HTTPException as e:
         raise e
@@ -58,6 +60,7 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         )
     
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
+    webrtc_url = f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
 
     return CamData(
         id=camera.id,
@@ -67,7 +70,8 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         created_by_user_id=camera.created_by_user_id,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
-        visualisation_url_hls=hls_url
+        visualisation_url_hls=hls_url,
+        visualisation_url_webrtc=webrtc_url
     )
 
 @router.get("/camera/user/{user_id}", response_model=List[CamData])
@@ -84,7 +88,8 @@ async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_se
             created_by_user_id=camera.created_by_user_id,
             created_at=camera.created_at,
             updated_at=camera.updated_at,
-            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8" 
+            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
+            visualisation_url_webrtc=f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
         )
         for camera in cameras
     ]
@@ -105,9 +110,11 @@ async def atualizar_camera(
             detail="Câmera não encontrada"
         )
     rtsp_url_changed = camera.rtsp_url != dados_camera.rtsp_url
-    if rtsp_url_changed:
+    recording_changed = camera.is_recording != dados_camera.is_recording
+
+    if rtsp_url_changed or recording_changed:
         try:
-            await media_mtx_service.create_camera_path(camera.path_id, dados_camera.rtsp_url)
+            await media_mtx_service.create_camera_path(camera.path_id, dados_camera.rtsp_url, dados_camera.is_recording)
         except Exception as e:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -124,6 +131,7 @@ async def atualizar_camera(
     session.refresh(camera)
 
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
+    webrtc_url = f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
 
     return CamData(
         id=camera.id,
@@ -133,7 +141,8 @@ async def atualizar_camera(
         created_by_user_id=camera.created_by_user_id,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
-        visualisation_url_hls=hls_url 
+        visualisation_url_hls=hls_url,
+        visualisation_url_webrtc=webrtc_url
     )
 
 @router.get("/camera/{camera_id}/recordings")
@@ -164,7 +173,7 @@ async def get_camera_recordings(
         except httpx.ConnectError:
             raise HTTPException(status_code=503, detail="Servidor de mídia indisponível")
         except httpx.HTTPStatusError as e:
-            if e.response.status_code == 404:
+            if e.response.status_code == 404 or "no such file" in e.response.text:
                  return [] 
             raise HTTPException(status_code=e.response.status_code, detail=f"Erro no MediaMTX: {e.response.text}")
 

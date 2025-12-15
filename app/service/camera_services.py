@@ -12,14 +12,15 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
             detail="Já existe uma câmera com este nome."
         )
     
-    path_id = f"live/{camera_data.name.lower().replace(' ', '_')}"
+    path_id = f"{camera_data.name.lower().replace(' ', '_')}"
     
     from app.service.mediaMtx_services import media_mtx_service
     
     try:
         path_is_ready = await media_mtx_service.create_and_verify_camera_path(
             path_name=path_id,
-            rtsp_url=camera_data.rtsp_url
+            rtsp_url=camera_data.rtsp_url,
+            record=camera_data.is_recording
         )
         if not path_is_ready:
             raise HTTPException(status_code=503, detail="Não foi possível configurar o stream no MediaMTX.")

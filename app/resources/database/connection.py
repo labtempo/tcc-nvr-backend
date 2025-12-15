@@ -2,6 +2,10 @@ import os
 from sqlmodel import create_engine, select, SQLModel, Session
 from dotenv import load_dotenv
 from app.domain.user_role import User_Role, UserRoleEnum
+from app.domain.user import User
+from app.domain.camera import Camera
+from app.domain.record import Record
+from app.domain.system_settings import System_Setting
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -11,10 +15,15 @@ if not DATABASE_URL:
 
 engine = create_engine(DATABASE_URL, echo=False)
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 def create_db_and_tables():
-    print("Criando tabelas no banco de dados...")
+    logger.info("Criando tabelas no banco de dados...")
     SQLModel.metadata.create_all(engine)
-    print("Tabelas criadas com sucesso!")
+    logger.info("Tabelas criadas com sucesso!")
 
 
 def seed_user_roles():

@@ -12,6 +12,7 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks: 
       - tcc-network
     healthcheck:
@@ -61,6 +62,8 @@ services:
       WEBRTC_PORT: 8889
       MEDIAMTX_API_USER: 'api-backend'
       MEDIAMTX_API_PASS: 'UMA_SENHA_FORTE_E_SECRETA_AQUI'
+      ALGORITHM: 'HS256'
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
     networks: 
       - tcc-network 
 

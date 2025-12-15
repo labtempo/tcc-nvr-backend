@@ -65,7 +65,7 @@ Após rodar a aplicação pela primeira vez, o banco estará vazio. Você deve c
 Execute o comando abaixo em um **novo terminal** para inserir o usuário `admin@sistema.com` (senha `admin123`) diretamente no banco dockerizado:
 
 ```bash
-docker exec -it tcc-postgres psql -U tcc_usr -d tcc_db -c "INSERT INTO public.\"user\" (email, password_hash, full_name, user_role_id, is_active, created_at, updated_at) VALUES ('admin@sistema.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'Administrador', 1, true, NOW(), NOW());"
+docker exec -it tcc-postgres psql -U tcc_usr -d tcc_db -c "INSERT INTO public.\"user\" (email, password_hash, full_name, user_role_id, is_active, created_at, updated_at) VALUES ('admin@sistema.com', '9bd2e6bb09a1aa991525f397da02abaaf67733b4b760ce96f287a91f5383e461', 'Administrador', 1, true, NOW(), NOW());"
 ```
 
 ## User Roles
