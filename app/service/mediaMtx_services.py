@@ -30,9 +30,9 @@ class MediaMtxService:
             pass
 
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {"source": "publisher", "record": True}
         else:
-            payload = {"source": rtsp_url}
+            payload = {"source": rtsp_url, "record": True}
 
         print(f"INFO: Enviando comando de criação para o path '{path_name}' com payload: {payload}")
         try:
@@ -67,9 +67,9 @@ class MediaMtxService:
         add_endpoint = f"/v3/config/paths/add/{path_name}"
         
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {"source": "publisher", "record": True}
         else:
-            payload = {"source": rtsp_url}
+            payload = {"source": rtsp_url, "record": True}
 
         try:
             response = await self.command_client.post(add_endpoint, json=payload)
