@@ -29,10 +29,24 @@ class MediaMtxService:
         except httpx.HTTPStatusError:
             pass
 
+        ffmpeg_cmd = (
+            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
+            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 " # Low qual profile
+            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
+        )
+
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {
+                "source": "publisher",
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
         else:
-            payload = {"source": rtsp_url}
+            payload = {
+                "source": rtsp_url,
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
 
         print(f"INFO: Enviando comando de criação para o path '{path_name}' com payload: {payload}")
         try:
@@ -66,10 +80,24 @@ class MediaMtxService:
         """Create a camera path in MediaMTX"""
         add_endpoint = f"/v3/config/paths/add/{path_name}"
         
+        ffmpeg_cmd = (
+            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
+            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 "
+            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
+        )
+        
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {
+                "source": "publisher",
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
         else:
-            payload = {"source": rtsp_url}
+            payload = {
+                "source": rtsp_url,
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
 
         try:
             response = await self.command_client.post(add_endpoint, json=payload)

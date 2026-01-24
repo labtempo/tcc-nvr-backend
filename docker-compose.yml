@@ -12,16 +12,16 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks: 
+    networks:
       - tcc-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U tcc_usr -d tcc_db"]
+      test: [ "CMD-SHELL", "pg_isready -U tcc_usr -d tcc_db" ]
       interval: 5s
       timeout: 5s
       retries: 5
 
   mediamtx:
-    image: bluenviron/mediamtx:latest
+    image: bluenviron/mediamtx:latest-ffmpeg
     container_name: tcc-mediamtx
     restart: unless-stopped
     ports:
@@ -61,11 +61,15 @@ services:
       WEBRTC_PORT: 8889
       MEDIAMTX_API_USER: 'api-backend'
       MEDIAMTX_API_PASS: 'UMA_SENHA_FORTE_E_SECRETA_AQUI'
-    networks: 
-      - tcc-network 
+      SECRET_KEY: 'dev_secret_key_change_me_in_prod'
+      ALGORITHM: 'HS256'
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
+    networks:
+      - tcc-network
 
 volumes:
   postgres_data:
+
 
 networks:
   tcc-network:

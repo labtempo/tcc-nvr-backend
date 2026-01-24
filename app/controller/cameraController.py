@@ -35,7 +35,8 @@ async def adicionar_camera(
             created_by_user_id=nova_camera.created_by_user_id,
             created_at=nova_camera.created_at,
             updated_at=nova_camera.updated_at,
-            visualisation_url_hls=hls_url
+            visualisation_url_hls=hls_url,
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{nova_camera.path_id_low}/index.m3u8" if nova_camera.path_id_low else None
         )
     except HTTPException as e:
         raise e
@@ -67,7 +68,8 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         created_by_user_id=camera.created_by_user_id,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
-        visualisation_url_hls=hls_url
+        visualisation_url_hls=hls_url,
+        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
     )
 
 @router.get("/camera/user/{user_id}", response_model=List[CamData])
@@ -84,7 +86,8 @@ async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_se
             created_by_user_id=camera.created_by_user_id,
             created_at=camera.created_at,
             updated_at=camera.updated_at,
-            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8" 
+            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
         )
         for camera in cameras
     ]
@@ -133,7 +136,8 @@ async def atualizar_camera(
         created_by_user_id=camera.created_by_user_id,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
-        visualisation_url_hls=hls_url 
+        visualisation_url_hls=hls_url,
+        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
     )
 
 @router.get("/camera/{camera_id}/recordings")
