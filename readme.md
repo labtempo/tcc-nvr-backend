@@ -104,6 +104,11 @@ A resposta do cadastro retornará um campo `visualisation_url_hls` (ex: `http://
 1. Abra um player HLS online (ex: [https://hls-js.netlify.app/demo/](https://hls-js.netlify.app/demo/)).
 2. Cole a URL HLS.
 3. Dê Play. Se o vídeo aparecer, o sistema está funcionando!
+4. **Teste WebRTC (Menor Latência):**
+   - O MediaMTX também converte para WebRTC/WHEP automaticamente.
+   - Use a URL: `http://localhost:8889/camera_teste/wherpc` (WHEP endpoint) ou visualize via browser em `http://localhost:8889/camera_teste`.
+   - Para o Frontend, você deve usar o endpoint WHEP.
+   - **Nota**: WebRTC requer que o navegador confie no servidor (localhost geralmente é aceito) ou HTTPS em produção.
 
 ## Endpoints
 

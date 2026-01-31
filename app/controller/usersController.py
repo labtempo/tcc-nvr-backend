@@ -29,10 +29,12 @@ async def login(
         dados={"sub": usuario.email},
         tempo_expiracao=token_expira
     )
+    role_name = "admin" if usuario.user_role_id == 1 else "viewer"
     return {
         "access_token": access_token,
         "token_type": "bearer",
-        "user_id": usuario.id
+        "user_id": usuario.id,
+        "role": role_name
     }
 
 @router.post("/usuarios", response_model=dict)
@@ -44,20 +46,23 @@ async def criar_usuario(
     if usuario_atual.user_role_id != 1: 
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Você não tem permissão para isso"
+            detail="Você não tem permissão para criar usuários. Apenas administradores."
         )
 
+    
+
+    
     user_to_db = User(
         email=novo_user.email,
-        full_name=novo_user.nome,
+        full_name=novo_user.full_name,
         password_hash=criar_hash_senha(novo_user.password),
         user_role_id=2
     )
 
-    # Usa o repositório para salvar no banco
+
     new_user = create_user(user_to_db, session)
 
-    return {"msg": f"Usuário {new_user.email} criado!", "id": new_user.id}
+    return {"msg": f"Usuário {new_user.email} criado com função de Visualizador!", "id": new_user.id}
 
 @router.get("/usuarios", response_model=List[UserData])
 async def listar_usuarios(
@@ -73,7 +78,13 @@ async def listar_usuarios(
     users = get_all_users(session)
 
     return [
-        UserData(id=user.id, email=user.email, full_name=user.full_name, user_role=user.user_role_id)
+        UserData(
+            id=user.id, 
+            email=user.email, 
+            full_name=user.full_name, 
+            user_role=user.user_role_id,
+            role="admin" if user.user_role_id == 1 else "viewer"
+        )
         for user in users
     ]
 
@@ -83,7 +94,8 @@ async def meu_perfil(usuario_atual: User = Depends(pegar_usuario_atual)):
         id=usuario_atual.id,
         email=usuario_atual.email,
         full_name=usuario_atual.full_name,
-        user_role=usuario_atual.user_role_id
+        user_role=usuario_atual.user_role_id,
+        role="admin" if usuario_atual.user_role_id == 1 else "viewer"
     )
 
 @router.get("/area-restrita")

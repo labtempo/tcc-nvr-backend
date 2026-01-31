@@ -7,7 +7,7 @@ from app.dtos.camera import CamCreate, CamData
 from app.domain.camera import Camera
 from app.resources.database.connection import get_session
 from app.security.security import create_temp_playback_token, decode_temp_playback_token, pegar_usuario_atual
-from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario, deletar_camera
+from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario, deletar_camera, listar_todas_cameras
 from typing import List
 from app.resources.settings.config import settings 
 from app.service.mediaMtx_services import media_mtx_service 
@@ -18,9 +18,14 @@ router = APIRouter()
 @router.post("/camera", response_model=CamData)
 async def adicionar_camera(
     dados_camera: CamCreate,
-    session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
 ):
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem adicionar câmeras"
+        )
+
     dados_camera.created_by_user_id = current_user.id
     try:
         nova_camera = await criar_camera(dados_camera, session)
@@ -47,16 +52,38 @@ async def adicionar_camera(
             detail=f"Um erro inesperado ocorreu: {str(e)}"
         )
 
+@router.get("/cameras", response_model=List[CamData])
+async def listar_todas(
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+
+    cameras = listar_todas_cameras(session)
+    return [
+        CamData(
+            id=camera.id,
+            name=camera.name,
+            rtsp_url=camera.rtsp_url,
+            is_recording=camera.is_recording,
+            created_by_user_id=camera.created_by_user_id,
+            created_at=camera.created_at,
+            updated_at=camera.updated_at,
+            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
+            visualisation_url_webrtc=f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
+        )
+        for camera in cameras
+    ]
+
 @router.get("/camera/{camera_id}", response_model=CamData)
 async def obter_camera(camera_id: int, session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
     ):
     camera = get_camera(camera_id, session)
 
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Câmera não encontrada ou não autorizada"
+            detail="Câmera não encontrada"
         )
     
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
@@ -101,10 +128,16 @@ async def atualizar_camera(
     session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
 ):
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem editar câmeras"
+        )
+
     dados_camera.created_by_user_id = current_user.id
     camera = get_camera(camera_id, session)
 
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Câmera não encontrada"
@@ -154,8 +187,8 @@ async def get_camera_recordings(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     camera = get_camera(camera_id, session)
-    if not camera or camera.created_by_user_id != current_user.id:
-        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
 
     mediamtx_url = f"{settings.media_mtx_playback_url}/list"
     auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
@@ -187,8 +220,8 @@ async def get_playback_url(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     camera = get_camera(camera_id, session)
-    if not camera or camera.created_by_user_id != current_user.id:
-        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
 
     token_data = {
         "sub": str(current_user.id), 
@@ -210,13 +243,22 @@ async def deletar_camera_endpoint(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     """Endpoint para deletar uma câmera"""
+
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem deletar câmeras"
+        )
+
+
     camera = get_camera(camera_id, session)
     
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Câmera não encontrada ou não autorizada"
+            detail="Câmera não encontrada"
         )
+
     
     try:
         sucesso = await deletar_camera(camera_id, session)
