@@ -9,7 +9,7 @@ $RtspPath = "live/$SafeName"
 $RtspUrl = "rtsp://mediamtx:8554/$RtspPath"
 $ApiUrl = "http://localhost:8000/api/v1"
 $AdminEmail = "admin@sistema.com"  # Updated to match the readme/db value
-$AdminPass = "sua_senha"            # Updated to match the readme/db value
+$AdminPass = "admin123"            # Updated to match the readme/db value
 
 Write-Host "=== Configuração da Simulação ===" -ForegroundColor Cyan
 Write-Host "Nome da Câmera: $CameraName"
@@ -67,7 +67,7 @@ function Register-Camera {
 }
 
 # Register synchronously before starting stream
-# Register-Camera
+Register-Camera
 
 Write-Host "Iniciando FFmpeg via Docker..." -ForegroundColor Cyan
 Write-Host "Para parar, pressione CTRL+C" -ForegroundColor Cyan

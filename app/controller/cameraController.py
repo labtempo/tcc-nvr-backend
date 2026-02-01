@@ -18,6 +18,7 @@ router = APIRouter()
 @router.post("/camera", response_model=CamData)
 async def adicionar_camera(
     dados_camera: CamCreate,
+    session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
 ):
     if current_user.user_role_id != 1:
