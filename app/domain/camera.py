@@ -9,5 +9,6 @@ class Camera(SQLModel, table=True):
     is_recording: bool = Field(default=False)
     created_by_user_id: Optional[int] = Field(default=None, foreign_key="user.id")
     path_id: str = Field(index=True, nullable=False)
+    path_id_low: Optional[str] = Field(default=None)
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

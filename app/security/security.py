@@ -1,5 +1,4 @@
 import hashlib
-import jwt
 from datetime import datetime, timedelta
 from typing import Optional
 from fastapi import HTTPException, Depends, status
@@ -47,7 +46,7 @@ async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depend
         email: str = payload.get("sub")
         if email is None:
             raise erro_auth
-    except jwt.PyJWTError:
+    except JWTError:
         raise erro_auth
     user = buscar_usuario_email(email, session)
     if user is None:
