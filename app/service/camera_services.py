@@ -34,7 +34,8 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
         rtsp_url=camera_data.rtsp_url,
         is_recording=camera_data.is_recording,
         created_by_user_id=camera_data.created_by_user_id,
-        path_id=path_id
+        path_id=path_id,
+        path_id_low=f"{path_id}_low"
     )
     return create_camera(camera, session)
 

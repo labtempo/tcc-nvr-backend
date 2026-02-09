@@ -13,6 +13,7 @@ class CamData(CamCreate):
     name: str
     rtsp_url: str
     visualisation_url_hls: str 
+    visualisation_url_hls_low: Optional[str] = None 
     visualisation_url_webrtc: str
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None 

@@ -44,12 +44,24 @@ class MediaMtxService:
         get_endpoint = f"/v3/paths/get/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
-        # Tentar limpar path antigo se existir (Blind Delete)
-        # REMOVED Blind Delete from here - we want to try PATCH first
-        
+        ffmpeg_cmd = (
+            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
+            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 " # Low qual profile
+            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
+        )
+
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {
+                "source": "publisher",
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
         else:
+            payload = {
+                "source": rtsp_url,
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
             payload = {"source": rtsp_url}
         
         payload["record"] = record
@@ -199,15 +211,29 @@ class MediaMtxService:
         import urllib.parse
         encoded_path_name = urllib.parse.quote(path_name, safe='')
         
+        ffmpeg_cmd = (
+            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
+            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 "
+            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
+        )
+        
         add_endpoint = f"/v3/config/paths/add/{encoded_path_name}"
         patch_endpoint = f"/v3/config/paths/patch/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
         # Setup Payload
         if rtsp_url.lower().startswith("publisher"):
-            payload: Dict[str, Any] = {"source": "publisher"}
+            payload: Dict[str, Any] = {
+                "source": "publisher",
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
         else:
-            payload = {"source": rtsp_url}
+            payload = {
+                "source": rtsp_url,
+                "runOnReady": ffmpeg_cmd,
+                "runOnReadyRestart": True
+            }
 
         payload["record"] = record
         if record:
