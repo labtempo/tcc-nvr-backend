@@ -13,6 +13,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - tcc-network
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U tcc_usr -d tcc_db" ]

@@ -65,7 +65,7 @@ Após rodar a aplicação pela primeira vez, o banco estará vazio. Você deve c
 Execute o comando abaixo em um **novo terminal** para inserir o usuário `admin@sistema.com` (senha `admin123`) diretamente no banco dockerizado:
 
 ```bash
-docker exec -it tcc-postgres psql -U tcc_usr -d tcc_db -c "INSERT INTO public.\"user\" (email, password_hash, full_name, user_role_id, is_active, created_at, updated_at) VALUES ('admin@sistema.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'Administrador', 1, true, NOW(), NOW());"
+docker exec -it tcc-postgres psql -U tcc_usr -d tcc_db -c "INSERT INTO public.\"user\" (email, password_hash, full_name, user_role_id, is_active, created_at, updated_at) VALUES ('admin@sistema.com', '9bd2e6bb09a1aa991525f397da02abaaf67733b4b760ce96f287a91f5383e461', 'Administrador', 1, true, NOW(), NOW());"
 ```
 
 ## User Roles
@@ -104,6 +104,11 @@ A resposta do cadastro retornará um campo `visualisation_url_hls` (ex: `http://
 1. Abra um player HLS online (ex: [https://hls-js.netlify.app/demo/](https://hls-js.netlify.app/demo/)).
 2. Cole a URL HLS.
 3. Dê Play. Se o vídeo aparecer, o sistema está funcionando!
+4. **Teste WebRTC (Menor Latência):**
+   - O MediaMTX também converte para WebRTC/WHEP automaticamente.
+   - Use a URL: `http://localhost:8889/camera_teste/wherpc` (WHEP endpoint) ou visualize via browser em `http://localhost:8889/camera_teste`.
+   - Para o Frontend, você deve usar o endpoint WHEP.
+   - **Nota**: WebRTC requer que o navegador confie no servidor (localhost geralmente é aceito) ou HTTPS em produção.
 
 ## Endpoints
 

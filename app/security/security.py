@@ -48,6 +48,7 @@ async def pegar_usuario_atual(credentials: HTTPAuthorizationCredentials = Depend
             raise erro_auth
     except JWTError:
         raise erro_auth
+
     user = buscar_usuario_email(email, session)
     if user is None:
         raise erro_auth

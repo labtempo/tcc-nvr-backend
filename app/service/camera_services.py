@@ -2,7 +2,7 @@ from sqlmodel import Session
 from fastapi import HTTPException, status
 from app.domain.camera import Camera
 from app.dtos.camera import CamCreate
-from app.repository.camera_repository import create_camera, get_cameras_by_user_id, get_camera_by_name, get_camera_by_id, delete_camera
+from app.repository.camera_repository import create_camera, get_cameras_by_user_id, get_camera_by_name, get_camera_by_id, delete_camera, get_all_cameras
 from typing import List
 
 async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
@@ -19,7 +19,8 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
     try:
         path_is_ready = await media_mtx_service.create_and_verify_camera_path(
             path_name=path_id,
-            rtsp_url=camera_data.rtsp_url
+            rtsp_url=camera_data.rtsp_url,
+            record=camera_data.is_recording
         )
         if not path_is_ready:
             raise HTTPException(status_code=503, detail="Não foi possível configurar o stream no MediaMTX.")
@@ -76,3 +77,6 @@ async def deletar_camera(camera_id: int, session: Session) -> bool:
 
 def listar_cameras_por_usuario(user_id: int, session: Session) -> List[Camera]:
     return get_cameras_by_user_id(user_id, session)
+
+def listar_todas_cameras(session: Session) -> List[Camera]:
+    return get_all_cameras(session)

@@ -11,8 +11,8 @@ RTSP_PATH="live/${SAFE_NAME}"
 RTSP_URL="rtsp://host.docker.internal:8554/${RTSP_PATH}"
 
 API_URL="http://localhost:8000/api/v1"
-ADMIN_EMAIL="admin@admin.com"
-ADMIN_PASS="sua_senha"
+ADMIN_EMAIL="admin@sistema.com"
+ADMIN_PASS="admin123"
 
 echo "=== Configuração da Simulação ==="
 echo "Nome da Câmera: ${CAMERA_NAME}"

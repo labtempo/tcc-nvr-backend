@@ -29,3 +29,7 @@ def delete_camera(camera: Camera, session: Session) -> bool:
     except Exception as e:
         session.rollback()
         raise e
+
+def get_all_cameras(session: Session) -> List[Camera]:
+    statement = select(Camera)
+    return session.exec(statement).all()
