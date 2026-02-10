@@ -14,3 +14,7 @@ def create_user(user: User, session: Session) -> User:
 def get_all_users(session: Session) -> list[User]:
     statement = select(User)
     return session.exec(statement).all()
+
+def delete_user(user: User, session: Session):
+    session.delete(user)
+    session.commit()

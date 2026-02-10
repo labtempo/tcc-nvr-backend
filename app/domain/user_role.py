@@ -8,4 +8,4 @@ class User_Role(SQLModel, table=True):
 
 class UserRoleEnum(str, Enum):
     ADMIN = "admin"
-    USUARIO = "usuario"
+    VIEWER = "viewer"

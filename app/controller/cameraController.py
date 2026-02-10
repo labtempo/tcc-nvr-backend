@@ -7,7 +7,7 @@ from app.dtos.camera import CamCreate, CamData
 from app.domain.camera import Camera
 from app.resources.database.connection import get_session
 from app.security.security import create_temp_playback_token, decode_temp_playback_token, pegar_usuario_atual
-from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario, deletar_camera
+from app.service.camera_services import criar_camera, get_camera, listar_cameras_por_usuario, deletar_camera, listar_todas_cameras
 from typing import List
 from app.resources.settings.config import settings 
 from app.service.mediaMtx_services import media_mtx_service 
@@ -21,11 +21,18 @@ async def adicionar_camera(
     session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
 ):
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem adicionar câmeras"
+        )
+
     dados_camera.created_by_user_id = current_user.id
     try:
         nova_camera = await criar_camera(dados_camera, session)
     
         hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}"
+        webrtc_url = f"{settings.media_mtx_webrtc_url}/{nova_camera.path_id}"
 
         return CamData(
             id=nova_camera.id,
@@ -33,10 +40,13 @@ async def adicionar_camera(
             rtsp_url=nova_camera.rtsp_url,
             is_recording=nova_camera.is_recording,
             created_by_user_id=nova_camera.created_by_user_id,
+            path_id=nova_camera.path_id,
+            path_id_low=nova_camera.path_id_low,
             created_at=nova_camera.created_at,
             updated_at=nova_camera.updated_at,
             visualisation_url_hls=hls_url,
-            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{nova_camera.path_id_low}/index.m3u8" if nova_camera.path_id_low else None
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{nova_camera.path_id_low}/index.m3u8" if nova_camera.path_id_low else None,
+            visualisation_url_webrtc=webrtc_url
         )
     except HTTPException as e:
         raise e
@@ -46,19 +56,45 @@ async def adicionar_camera(
             detail=f"Um erro inesperado ocorreu: {str(e)}"
         )
 
+@router.get("/cameras", response_model=List[CamData])
+async def listar_todas(
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+
+    cameras = listar_todas_cameras(session)
+    return [
+        CamData(
+            id=camera.id,
+            name=camera.name,
+            rtsp_url=camera.rtsp_url,
+            is_recording=camera.is_recording,
+            created_by_user_id=camera.created_by_user_id,
+            path_id=camera.path_id,
+            path_id_low=camera.path_id_low,
+            created_at=camera.created_at,
+            updated_at=camera.updated_at,
+            visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
+            visualisation_url_webrtc=f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
+        )
+        for camera in cameras
+    ]
+
 @router.get("/camera/{camera_id}", response_model=CamData)
 async def obter_camera(camera_id: int, session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
     ):
     camera = get_camera(camera_id, session)
 
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Câmera não encontrada ou não autorizada"
+            detail="Câmera não encontrada"
         )
     
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
+    
+    webrtc_url = f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
 
     return CamData(
         id=camera.id,
@@ -66,10 +102,13 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         rtsp_url=camera.rtsp_url,
         is_recording=camera.is_recording,
         created_by_user_id=camera.created_by_user_id,
+        path_id=camera.path_id,
+        path_id_low=camera.path_id_low,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
         visualisation_url_hls=hls_url,
-        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
+        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None,
+        visualisation_url_webrtc=webrtc_url
     )
 
 @router.get("/camera/user/{user_id}", response_model=List[CamData])
@@ -84,10 +123,13 @@ async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_se
             rtsp_url=camera.rtsp_url,
             is_recording=camera.is_recording,
             created_by_user_id=camera.created_by_user_id,
+            path_id=camera.path_id,
+            path_id_low=camera.path_id_low,
             created_at=camera.created_at,
             updated_at=camera.updated_at,
             visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
-            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None,
+            visualisation_url_webrtc=f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
         )
         for camera in cameras
     ]
@@ -99,18 +141,26 @@ async def atualizar_camera(
     session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
 ):
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem editar câmeras"
+        )
+
     dados_camera.created_by_user_id = current_user.id
     camera = get_camera(camera_id, session)
 
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Câmera não encontrada"
         )
     rtsp_url_changed = camera.rtsp_url != dados_camera.rtsp_url
-    if rtsp_url_changed:
+    recording_changed = camera.is_recording != dados_camera.is_recording
+
+    if rtsp_url_changed or recording_changed:
         try:
-            await media_mtx_service.create_camera_path(camera.path_id, dados_camera.rtsp_url)
+            await media_mtx_service.create_camera_path(camera.path_id, dados_camera.rtsp_url, dados_camera.is_recording)
         except Exception as e:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -127,6 +177,7 @@ async def atualizar_camera(
     session.refresh(camera)
 
     hls_url = f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8"
+    webrtc_url = f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
 
     return CamData(
         id=camera.id,
@@ -134,10 +185,13 @@ async def atualizar_camera(
         rtsp_url=camera.rtsp_url,
         is_recording=camera.is_recording,
         created_by_user_id=camera.created_by_user_id,
+        path_id=camera.path_id,
+        path_id_low=camera.path_id_low,
         created_at=camera.created_at,
         updated_at=camera.updated_at,
         visualisation_url_hls=hls_url,
-        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None
+        visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None,
+        visualisation_url_webrtc=webrtc_url
     )
 
 @router.get("/camera/{camera_id}/recordings")
@@ -149,8 +203,8 @@ async def get_camera_recordings(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     camera = get_camera(camera_id, session)
-    if not camera or camera.created_by_user_id != current_user.id:
-        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
 
     mediamtx_url = f"{settings.media_mtx_playback_url}/list"
     auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
@@ -168,7 +222,7 @@ async def get_camera_recordings(
         except httpx.ConnectError:
             raise HTTPException(status_code=503, detail="Servidor de mídia indisponível")
         except httpx.HTTPStatusError as e:
-            if e.response.status_code == 404:
+            if e.response.status_code == 404 or "no such file" in e.response.text:
                  return [] 
             raise HTTPException(status_code=e.response.status_code, detail=f"Erro no MediaMTX: {e.response.text}")
 
@@ -182,8 +236,8 @@ async def get_playback_url(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     camera = get_camera(camera_id, session)
-    if not camera or camera.created_by_user_id != current_user.id:
-        raise HTTPException(status_code=404, detail="Câmera não encontrada ou não autorizada")
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
 
     token_data = {
         "sub": str(current_user.id), 
@@ -205,13 +259,22 @@ async def deletar_camera_endpoint(
     current_user: User = Depends(pegar_usuario_atual)
 ):
     """Endpoint para deletar uma câmera"""
+
+    if current_user.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem deletar câmeras"
+        )
+
+
     camera = get_camera(camera_id, session)
     
-    if not camera or camera.created_by_user_id != current_user.id:
+    if not camera:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Câmera não encontrada ou não autorizada"
+            detail="Câmera não encontrada"
         )
+
     
     try:
         sucesso = await deletar_camera(camera_id, session)

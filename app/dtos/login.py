@@ -10,6 +10,7 @@ class UserData(BaseModel):
     email: str
     full_name: str  
     user_role: int
+    role: str
 
 class NovoUsuario(BaseModel):
     email: EmailStr

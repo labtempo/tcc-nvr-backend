@@ -12,5 +12,10 @@ class CamData(CamCreate):
     id: int
     name: str
     rtsp_url: str
+    path_id: str
+    path_id_low: Optional[str] = None
     visualisation_url_hls: str 
     visualisation_url_hls_low: Optional[str] = None 
+    visualisation_url_webrtc: str
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None 
