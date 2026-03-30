@@ -1,0 +1,1524 @@
+2026-03-02 00:29:04 [INFO] app.resources.database.connection connection:24 - Criando tabelas no banco de dados...
+2026-03-02 00:29:05 [INFO] app.resources.database.connection connection:26 - Tabelas criadas com sucesso!
+2026-03-02 00:30:28 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: thiagomeloper@hotmail.com
+2026-03-02 00:30:28 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: thiagomeloper@hotmail.com (Role: viewer)
+2026-03-02 00:30:57 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: thiagomeloper@hotmail.com
+2026-03-02 00:30:57 [WARNING] app.controller.usersController usersController:28 - Falha de autenticação para o usuário: thiagomeloper@hotmail.com
+2026-03-02 00:33:38 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: thiagomeloper@hotmail.com
+2026-03-02 00:33:38 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: thiagomeloper@hotmail.com (Role: viewer)
+2026-03-03 00:11:01 [INFO] app.resources.database.connection connection:24 - Criando tabelas no banco de dados...
+2026-03-03 00:11:01 [INFO] app.resources.database.connection connection:26 - Tabelas criadas com sucesso!
+2026-03-03 00:16:51 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:16:51 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:16:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:16:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717291b3450>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:16:51 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:16:51 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam1 "HTTP/1.1 404 Not Found"
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:16:51 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:16:51 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam1 "HTTP/1.1 404 Not Found"
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:16:51 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:16:51 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam1 "HTTP/1.1 200 OK"
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:16:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728936d90>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:16:51 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:16:51 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam1 "HTTP/1.1 200 OK"
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:16:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:17 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:17:17 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728926090>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:17 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:17:17 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam2 "HTTP/1.1 404 Not Found"
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:17 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:17:17 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam2 "HTTP/1.1 404 Not Found"
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:17 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:17:17 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam2 "HTTP/1.1 200 OK"
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:17:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894d090>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:17 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:17:17 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam2 "HTTP/1.1 200 OK"
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:27 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:17:27 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:17:57 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:17:57 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894ff10>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:57 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:17:57 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam3 "HTTP/1.1 404 Not Found"
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:57 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:17:57 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam3 "HTTP/1.1 404 Not Found"
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:57 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:17:57 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam3 "HTTP/1.1 200 OK"
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:17:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717289433d0>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:17:57 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:17:57 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam3 "HTTP/1.1 200 OK"
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:17:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:33 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:18:33 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717291b3910>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:33 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:18:33 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam4 "HTTP/1.1 404 Not Found"
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:33 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:18:33 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam4 "HTTP/1.1 404 Not Found"
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:33 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:18:33 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam4 "HTTP/1.1 200 OK"
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:18:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895f250>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:33 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:18:33 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam4 "HTTP/1.1 200 OK"
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:51 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:18:51 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172896d350>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:51 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:18:51 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam5 "HTTP/1.1 404 Not Found"
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:51 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:18:51 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam5 "HTTP/1.1 404 Not Found"
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:51 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:18:51 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam5 "HTTP/1.1 200 OK"
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:18:51 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172cabd3d0>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:18:51 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:18:51 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam5 "HTTP/1.1 200 OK"
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:18:51 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:19:30 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:19:30 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:21:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:21:57 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717291b3cd0>
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:21:57 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:21:57 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:21:57 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:21:57 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:21:57 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:00 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:00 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894d310>
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:00 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:22:00 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:00 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:00 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:00 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:13 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:13 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771729133450>
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:13 GMT'), (b'Content-Length', b'187')])
+2026-03-03 00:22:13 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:13 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:13 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:13 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717289438d0>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:14 GMT'), (b'Content-Length', b'187')])
+2026-03-03 00:22:14 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-01T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:14 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895fad0>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:14 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:14 GMT'), (b'Content-Length', b'181')])
+2026-03-03 00:22:15 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:15 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:15 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:15 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:15 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894eb50>
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728976d10>
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172896ef50>
+2026-03-03 00:22:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894cdd0>
+2026-03-03 00:22:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253894d0>
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:25 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:22:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172538b050>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:26 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:22:26 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725394850>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:26 GMT'), (b'Content-Length', b'181')])
+2026-03-03 00:22:26 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:26 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725396d50>
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:27 GMT'), (b'Content-Length', b'187')])
+2026-03-03 00:22:27 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:27 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:27 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:28 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:28 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725384550>
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:28 GMT'), (b'Content-Length', b'54')])
+2026-03-03 00:22:28 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam3&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 400 Bad Request"
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:28 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:28 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771729133450>
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:29 GMT'), (b'Content-Length', b'179')])
+2026-03-03 00:22:29 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:29 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:32 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:32 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895c5d0>
+2026-03-03 00:22:32 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:32 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:32 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:32 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:32 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:35 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:35 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725397d90>
+2026-03-03 00:22:35 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:35 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:35 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:35 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:35 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:36 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:36 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253964d0>
+2026-03-03 00:22:36 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:36 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:36 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:36 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:36 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:37 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:37 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771729133450>
+2026-03-03 00:22:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:38 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725385d50>
+2026-03-03 00:22:39 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:39 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:39 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:39 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253966d0>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:40 GMT'), (b'Content-Length', b'179')])
+2026-03-03 00:22:40 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253a97d0>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:41 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:22:41 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:41 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:41 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253abe90>
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:22:42 GMT'), (b'Content-Length', b'179')])
+2026-03-03 00:22:42 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:42 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:22:42 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:22:42 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:42 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b18d0>
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895c450>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717289265d0>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172538a290>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:22:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725396d90>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:22:44 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:22:47 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:47 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:47 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:22:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:26:53 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:26:53 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253a84d0>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:26:53 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:26:53 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam9 "HTTP/1.1 404 Not Found"
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:26:53 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:26:53 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam9 "HTTP/1.1 404 Not Found"
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:26:53 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:26:53 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam9 "HTTP/1.1 200 OK"
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:26:53 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b3090>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:26:53 GMT'), (b'Content-Length', b'145')])
+2026-03-03 00:26:53 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam9 "HTTP/1.1 200 OK"
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:26:53 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:27:11 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:27:11 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:28:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253ab450>
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:23 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:23 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:23 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:23 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b0550>
+2026-03-03 00:28:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:25 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172538a310>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:25 GMT'), (b'Content-Length', b'54')])
+2026-03-03 00:28:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam3&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 400 Bad Request"
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:26 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725386210>
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:26 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:26 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:26 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:26 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:26 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728976fd0>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:27 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:27 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725387e90>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:27 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:27 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:27 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:28 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:28 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725389290>
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:28 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:28 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:28 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:28 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728925250>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:29 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:29 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-01T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728943a10>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:29 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:29 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:29 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:29 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771729554290>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:30 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:30 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-02-28T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253948d0>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:30 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:30 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-04T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728976fd0>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:30 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:30 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-05T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:30 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:30 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894ef50>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:31 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:31 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-06T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b2290>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:31 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:31 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-03-06T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:31 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172896d1d0>
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:32 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:28:32 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:32 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:32 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:33 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725386750>
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:33 GMT'), (b'Content-Length', b'181')])
+2026-03-03 00:28:33 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-03-01T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:33 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:33 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:33 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:34 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:34 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725394dd0>
+2026-03-03 00:28:34 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:34 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:34 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:34 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:34 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728977250>
+2026-03-03 00:28:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:38 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:28:39 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:39 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:28:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b1990>
+2026-03-03 00:28:39 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:28:40 GMT'), (b'Content-Length', b'54')])
+2026-03-03 00:28:40 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam3&start=2026-03-01T03%3A00%3A00.000Z "HTTP/1.1 400 Bad Request"
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:40 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:28:40 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:28:40 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:28:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:28:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:28:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:29:02 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:29:02 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b1710>
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:29:02 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:29:02 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:29:02 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:29:02 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:29:02 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:32:48 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:32:48 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=10.0 socket_options=None
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172535fc90>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'PATCH']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'PATCH']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:32:48 GMT'), (b'Content-Length', b'43')])
+2026-03-03 00:32:48 [INFO] httpx _client:1740 - HTTP Request: PATCH http://mediamtx:9997/v3/config/paths/patch/live%2Fcam11 "HTTP/1.1 404 Not Found"
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'PATCH']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:32:48 GMT'), (b'Content-Length', b'18')])
+2026-03-03 00:32:48 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/delete/live%2Fcam11 "HTTP/1.1 404 Not Found"
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:32:48 GMT'), (b'Content-Length', b'15')])
+2026-03-03 00:32:48 [INFO] httpx _client:1740 - HTTP Request: POST http://mediamtx:9997/v3/config/paths/add/live%2Fcam11 "HTTP/1.1 200 OK"
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'POST']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9997 local_address=None timeout=30.0 socket_options=None
+2026-03-03 00:32:48 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725397ad0>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:32:48 GMT'), (b'Content-Length', b'147')])
+2026-03-03 00:32:48 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9997/v3/paths/get/live%2Fcam11 "HTTP/1.1 200 OK"
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:32:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:33:26 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:33:26 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:35:15 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:15 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172896c490>
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:15 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:15 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:15 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:15 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:15 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:17 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725386310>
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:17 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:17 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam2&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:17 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:17 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:17 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:18 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:18 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b0450>
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:18 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:18 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:18 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:18 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:18 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:19 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:19 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728976590>
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:19 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:19 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:19 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:19 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:19 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895c0d0>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:20 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:20 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895c0d0>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:20 GMT'), (b'Content-Length', b'54')])
+2026-03-03 00:35:20 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam3&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 400 Bad Request"
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:20 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:20 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:21 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:21 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728941490>
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:21 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:21 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:21 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:21 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:21 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725385d50>
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:22 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:35:22 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:22 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:22 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:22 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b1410>
+2026-03-03 00:35:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:25 GMT'), (b'Content-Length', b'179')])
+2026-03-03 00:35:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:35:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725394950>
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:35:27 GMT'), (b'Content-Length', b'188')])
+2026-03-03 00:35:27 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:27 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:27 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:35:27 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:35:37 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:37 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172538b490>
+2026-03-03 00:35:37 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:37 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:37 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:37 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725385f50>
+2026-03-03 00:35:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:38 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728977150>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:40 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172538bd50>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:40 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:42 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:42 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b8550>
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:42 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:35:43 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b5310>
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:35:43 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:45 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:47 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:47 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:47 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:35:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:35:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:35:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:37:08 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:37:08 [WARNING] app.controller.usersController usersController:28 - Falha de autenticação para o usuário: admin@sistema.com
+2026-03-03 00:37:11 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:37:11 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:38:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:31 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253ba010>
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:31 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:38:31 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:31 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:31 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:31 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:34 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:34 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253ab450>
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 400, b'Bad Request', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:34 GMT'), (b'Content-Length', b'54')])
+2026-03-03 00:38:34 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam3&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 400 Bad Request"
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:34 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:34 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:34 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:35 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:35 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717249c4690>
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:35 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:38:35 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:35 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:35 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:35 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:36 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:36 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771729163190>
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:36 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:38:36 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam9&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:36 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:36 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:36 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:37 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:37 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b55d0>
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:37 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:38:37 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:37 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:37 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:37 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:38 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b8e50>
+2026-03-03 00:38:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:38 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:38 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:38 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:39 GMT'), (b'Content-Length', b'181')])
+2026-03-03 00:38:39 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:39 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:39 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:39 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172894ff50>
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:39 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:41 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:41 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725385510>
+2026-03-03 00:38:41 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:41 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:41 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:41 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:41 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:44 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b8bd0>
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:44 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:46 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x77172895ced0>
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:46 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:38:46 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-04T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:46 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:46 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:46 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:47 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:38:47 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728976e50>
+2026-03-03 00:38:47 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:47 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:38:47 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:38:47 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:38:47 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:38:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:38:48 GMT'), (b'Content-Length', b'181')])
+2026-03-03 00:38:48 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:38:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:38:48 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:38:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:48 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:38:48 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:38:48 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:38:49 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.failed exception=ReadTimeout(TimeoutError())
+2026-03-03 00:38:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:38:49 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:40:56 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-03 00:40:56 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)
+2026-03-03 00:42:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:22 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771725386fd0>
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:22 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:42:22 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Flive%2Fobs&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:22 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:22 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:22 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253bbb50>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:23 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:42:23 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam5&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253bb650>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:23 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:42:23 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam1&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:23 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:23 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b7c50>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'text/plain; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:24 GMT'), (b'Content-Length', b'27')])
+2026-03-03 00:42:24 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-03T03%3A00%3A00.000Z "HTTP/1.1 404 Not Found"
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b6390>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:24 GMT'), (b'Content-Length', b'182')])
+2026-03-03 00:42:24 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:24 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:24 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x771728910890>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:25 GMT'), (b'Content-Length', b'182')])
+2026-03-03 00:42:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-01T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253b4190>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:25 GMT'), (b'Content-Length', b'182')])
+2026-03-03 00:42:25 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam11&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:25 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:25 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-03 00:42:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.started host='mediamtx' port=9996 local_address=None timeout=5.0 socket_options=None
+2026-03-03 00:42:27 [DEBUG] httpcore.connection _trace:87 - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x7717253955d0>
+2026-03-03 00:42:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:27 [DEBUG] httpcore.http11 _trace:87 - send_request_headers.complete
+2026-03-03 00:42:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.started request=<Request [b'GET']>
+2026-03-03 00:42:27 [DEBUG] httpcore.http11 _trace:87 - send_request_body.complete
+2026-03-03 00:42:27 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.started request=<Request [b'GET']>
+2026-03-03 00:42:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Access-Control-Allow-Credentials', b'true'), (b'Access-Control-Allow-Origin', b'*'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Server', b'mediamtx'), (b'Date', b'Tue, 03 Mar 2026 00:42:28 GMT'), (b'Content-Length', b'183')])
+2026-03-03 00:42:28 [INFO] httpx _client:1740 - HTTP Request: GET http://mediamtx:9996/list?path=live%2Fcam4&start=2026-03-02T03%3A00%3A00.000Z "HTTP/1.1 200 OK"
+2026-03-03 00:42:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.started request=<Request [b'GET']>
+2026-03-03 00:42:28 [DEBUG] httpcore.http11 _trace:87 - receive_response_body.complete
+2026-03-03 00:42:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.started
+2026-03-03 00:42:28 [DEBUG] httpcore.http11 _trace:87 - response_closed.complete
+2026-03-03 00:42:28 [DEBUG] httpcore.connection _trace:87 - close.started
+2026-03-03 00:42:28 [DEBUG] httpcore.connection _trace:87 - close.complete
+2026-03-28 16:49:51 [INFO] app.resources.database.connection connection:24 - Criando tabelas no banco de dados...
+2026-03-28 16:49:51 [INFO] app.resources.database.connection connection:26 - Tabelas criadas com sucesso!
+2026-03-28 16:51:00 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: thiagomeloper@hotmail.com
+2026-03-28 16:51:00 [WARNING] app.controller.usersController usersController:28 - Falha de autenticação para o usuário: thiagomeloper@hotmail.com
+2026-03-28 16:54:06 [INFO] app.controller.usersController usersController:24 - Tentativa de login recebida para o usuário: admin@sistema.com
+2026-03-28 16:54:06 [INFO] app.controller.usersController usersController:40 - Login realizado com sucesso para: admin@sistema.com (Role: admin)

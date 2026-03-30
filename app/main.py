@@ -3,11 +3,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from datetime import datetime
 
+from app.resources.logging import setup_logging, get_logger
 from app.controller import recordController, videoController
 from app.controller.usersController import router as users
 from app.controller.cameraController import router as cameras  
 from app.resources.database.connection import create_db_and_tables, seed_user_roles
 from app.controller import playbackController
+
+# prepare logging antes de qualquer outra coisa
+setup_logging()
+logger = get_logger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
