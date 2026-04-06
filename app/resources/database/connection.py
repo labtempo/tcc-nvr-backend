@@ -6,6 +6,7 @@ from app.domain.user import User
 from app.domain.camera import Camera
 from app.domain.record import Record
 from app.domain.system_settings import System_Setting
+from app.domain.user_preference import UserPreference
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")

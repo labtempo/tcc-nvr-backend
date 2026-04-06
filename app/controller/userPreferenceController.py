@@ -1,12 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
-from typing import List
-
+from app.dtos.user_preference import UserCameraOrderUpdate, UserPreferencesResponse
+from app.domain.user_preference import UserPreference
 from app.resources.database.connection import get_session
 from app.security.security import pegar_usuario_atual
-from app.domain.user import User 
-from app.domain.user_preference import UserPreference
-from app.dtos.user_preference import UserCameraOrderUpdate, UserPreferencesResponse
+
 
 router = APIRouter()
 
@@ -14,19 +12,19 @@ router = APIRouter()
 def update_camera_order(
     request: UserCameraOrderUpdate,
     session: Session = Depends(get_session),
-    usuario_atual: User = Depends(pegar_usuario_atual) 
+    current_user = Depends(pegar_usuario_atual)
 ):
-    statement = select(UserPreference).where(UserPreference.user_id == usuario_atual.id)
+    statement = select(UserPreference).where(UserPreference.user_id == current_user.id)
     preference = session.exec(statement).first()
     
     if not preference:
         preference = UserPreference(
-            user_id=usuario_atual.id,
+            user_id=current_user.id,
             camera_order=request.camera_ids
         )
         session.add(preference)
     else:
-        preference.camera_order = request.camera_ids
+       preference.camera_order = request.camera_ids
         
     session.commit()
     session.refresh(preference)
@@ -36,9 +34,9 @@ def update_camera_order(
 @router.get("/users/me/preferences", response_model=UserPreferencesResponse)
 def get_user_preferences(
     session: Session = Depends(get_session),
-    usuario_atual: User = Depends(pegar_usuario_atual)
+    current_user = Depends(pegar_usuario_atual)
 ):
-    statement = select(UserPreference).where(UserPreference.user_id == usuario_atual.id)
+    statement = select(UserPreference).where(UserPreference.user_id == current_user.id)
     preference = session.exec(statement).first()
     
     if not preference:
