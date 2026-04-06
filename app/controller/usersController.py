@@ -4,6 +4,7 @@ from typing import List
 from sqlmodel import Session
 
 from app.dtos.login import LoginData, UserData, NovoUsuario
+from app.resources.logging.logger import get_logger
 from app.security.TokenContext import TokenResponse
 from app.security.security import gerar_token, pegar_usuario_atual, criar_hash_senha
 from app.service.user_services import authenticate_user
@@ -12,14 +13,19 @@ from app.domain.user import User
 from app.resources.database.connection import get_session
 
 router = APIRouter()
+logger = get_logger(__name__)
 
 @router.post("/login", response_model=TokenResponse)
 async def login(
     dados_login: LoginData,
     session: Session = Depends(get_session)
 ):
+    
+    logger.info(f"Tentativa de login recebida para o usuário: {dados_login.email}")
+
     usuario = authenticate_user(dados_login, session)
     if not usuario:
+        logger.warning(f"Falha de autenticação para o usuário: {dados_login.email}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Email ou senha errados"
@@ -30,6 +36,9 @@ async def login(
         tempo_expiracao=token_expira
     )
     role_name = "admin" if usuario.user_role_id == 1 else "viewer"
+
+    logger.info(f"Login realizado com sucesso para: {dados_login.email} (Role: {role_name})")
+
     return {
         "access_token": access_token,
         "token_type": "bearer",
@@ -49,16 +58,12 @@ async def criar_usuario(
             detail="Você não tem permissão para criar usuários. Apenas administradores."
         )
 
-    
-
-    
     user_to_db = User(
         email=novo_user.email,
         full_name=novo_user.full_name,
         password_hash=criar_hash_senha(novo_user.password),
         user_role_id=2
     )
-
 
     new_user = create_user(user_to_db, session)
 
