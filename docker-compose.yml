@@ -25,14 +25,16 @@ services:
     image: bluenviron/mediamtx:latest-ffmpeg
     container_name: tcc-mediamtx
     restart: unless-stopped
+    environment:
+      MTX_WEBRTCADDITIONALHOSTS: "${PUBLIC_SERVER_IP:-127.0.0.1}"
     ports:
-      - "1935:1935"
-      - "8554:8554"
-      - "8888:8888"
-      - "9997:9997"
-      - "8889:8889"
-      - "9996:9996"
-      - "8189:8189/udp"
+      - "18935:1935"
+      - "18554:8554"
+      - "18888:8888"
+      - "18889:8889"
+      - "18189:8189/udp"
+      - "19997:9997"
+      - "19996:9996"
     volumes:
       - ./mediamtx.yml:/mediamtx.yml
       - ./recordings:/recordings
@@ -65,6 +67,22 @@ services:
       SECRET_KEY: 'dev_secret_key_change_me_in_prod'
       ALGORITHM: 'HS256'
       ACCESS_TOKEN_EXPIRE_MINUTES: 60
+      PUBLIC_SERVER_IP: "${PUBLIC_SERVER_IP:-127.0.0.1}"
+      PUBLIC_HLS_PORT: "18888"
+      PUBLIC_WEBRTC_PORT: "18889"
+    networks:
+      - tcc-network
+
+  frontend:
+    build:
+      context: ../tcc-nvr-frontend
+      dockerfile: dockerfile
+    container_name: tcc-frontend
+    restart: always
+    ports:
+      - "18080:80"
+    depends_on:
+      - api
     networks:
       - tcc-network
 
