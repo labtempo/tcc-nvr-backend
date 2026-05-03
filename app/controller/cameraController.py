@@ -31,13 +31,14 @@ async def adicionar_camera(
     try:
         nova_camera = await criar_camera(dados_camera, session)
     
-        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}"
+        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}/index.m3u8"
         webrtc_url = f"{settings.media_mtx_webrtc_url}/{nova_camera.path_id}"
 
         return CamData(
             id=nova_camera.id,
             name=nova_camera.name,
             rtsp_url=nova_camera.rtsp_url,
+            rtsp_url_low=nova_camera.rtsp_url_low,
             is_recording=nova_camera.is_recording,
             created_by_user_id=nova_camera.created_by_user_id,
             path_id=nova_camera.path_id,
@@ -56,18 +57,17 @@ async def adicionar_camera(
             detail=f"Um erro inesperado ocorreu: {str(e)}"
         )
 
-@router.get("/cameras", response_model=List[CamData])
-async def listar_todas(
-    session: Session = Depends(get_session),
+@router.get("/camera/user/{user_id}", response_model=List[CamData])
+async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
-):
-
-    cameras = listar_todas_cameras(session)
+    ):
+    cameras = listar_cameras_por_usuario(user_id, session)
     return [
         CamData(
             id=camera.id,
             name=camera.name,
             rtsp_url=camera.rtsp_url,
+            rtsp_url_low=camera.rtsp_url_low,
             is_recording=camera.is_recording,
             created_by_user_id=camera.created_by_user_id,
             path_id=camera.path_id,
@@ -75,10 +75,68 @@ async def listar_todas(
             created_at=camera.created_at,
             updated_at=camera.updated_at,
             visualisation_url_hls=f"{settings.media_mtx_hls_url}/{camera.path_id}/index.m3u8",
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{camera.path_id_low}/index.m3u8" if camera.path_id_low else None,
             visualisation_url_webrtc=f"{settings.media_mtx_webrtc_url}/{camera.path_id}"
         )
         for camera in cameras
     ]
+
+@router.get("/camera/{camera_id}/recordings")
+async def get_camera_recordings(
+    camera_id: int,
+    start: str | None = None,
+    end: str | None = None,
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+    camera = get_camera(camera_id, session)
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
+
+    mediamtx_url = f"{settings.media_mtx_playback_url}/list"
+    auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
+    params = {"path": camera.path_id}
+    if start:
+        params["start"] = start
+    if end:
+        params["end"] = end
+
+    async with httpx.AsyncClient(auth=auth) as client:
+        try:
+            response = await client.get(mediamtx_url, params=params)
+            response.raise_for_status() 
+            return response.json() 
+        except httpx.ConnectError:
+            raise HTTPException(status_code=503, detail="Servidor de mídia indisponível")
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 404 or "no such file" in e.response.text:
+                 return [] 
+            raise HTTPException(status_code=e.response.status_code, detail=f"Erro no MediaMTX: {e.response.text}")
+
+@router.get("/camera/{camera_id}/playback-url")
+async def get_playback_url(
+    camera_id: int,
+    start: str,
+    duration: float, 
+    session: Session = Depends(get_session),
+    current_user: User = Depends(pegar_usuario_atual)
+):
+    camera = get_camera(camera_id, session)
+    if not camera:
+        raise HTTPException(status_code=404, detail="Câmera não encontrada")
+
+    token_data = {
+        "sub": str(current_user.id), 
+        "path": camera.path_id,      
+        "start": start,             
+        "duration": duration         
+    }
+    
+    temp_token = create_temp_playback_token(data=token_data)
+    
+    playback_url = f"/api/v1/playback/video?token={temp_token}"
+    
+    return {"playbackUrl": playback_url}
 
 @router.get("/camera/{camera_id}", response_model=CamData)
 async def obter_camera(camera_id: int, session: Session = Depends(get_session),
@@ -100,6 +158,7 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         id=camera.id,
         name=camera.name,
         rtsp_url=camera.rtsp_url,
+        rtsp_url_low=camera.rtsp_url_low,
         is_recording=camera.is_recording,
         created_by_user_id=camera.created_by_user_id,
         path_id=camera.path_id,
@@ -111,16 +170,19 @@ async def obter_camera(camera_id: int, session: Session = Depends(get_session),
         visualisation_url_webrtc=webrtc_url
     )
 
-@router.get("/camera/user/{user_id}", response_model=List[CamData])
-async def listar_cameras_usuario(user_id: int, session: Session = Depends(get_session),
+@router.get("/cameras", response_model=List[CamData])
+async def listar_todas(
+    session: Session = Depends(get_session),
     current_user: User = Depends(pegar_usuario_atual)
-    ):
-    cameras = listar_cameras_por_usuario(user_id, session)
+):
+
+    cameras = listar_todas_cameras(session)
     return [
         CamData(
             id=camera.id,
             name=camera.name,
             rtsp_url=camera.rtsp_url,
+            rtsp_url_low=camera.rtsp_url_low,
             is_recording=camera.is_recording,
             created_by_user_id=camera.created_by_user_id,
             path_id=camera.path_id,
@@ -156,6 +218,7 @@ async def atualizar_camera(
             detail="Câmera não encontrada"
         )
     rtsp_url_changed = camera.rtsp_url != dados_camera.rtsp_url
+    rtsp_url_low_changed = camera.rtsp_url_low != dados_camera.rtsp_url_low
     recording_changed = camera.is_recording != dados_camera.is_recording
 
     if rtsp_url_changed or recording_changed:
@@ -166,9 +229,18 @@ async def atualizar_camera(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail=f"Falha ao reconfigurar stream no MediaMTX: {e}" 
             )
+    
+    # Se URL de baixa qualidade foi alterada, reconfigurar também
+    if rtsp_url_low_changed and dados_camera.rtsp_url_low and camera.path_id_low:
+        try:
+            await media_mtx_service.create_camera_path(camera.path_id_low, dados_camera.rtsp_url_low, dados_camera.is_recording)
+        except Exception as e:
+            print(f"AVISO: Erro ao reconfigurar stream de baixa qualidade: {e}")
+            # Continua mesmo se falhar na baixa qualidade
 
     camera.name = dados_camera.name
     camera.rtsp_url = dados_camera.rtsp_url
+    camera.rtsp_url_low = dados_camera.rtsp_url_low
     camera.is_recording = dados_camera.is_recording
     camera.created_by_user_id = dados_camera.created_by_user_id
 
@@ -183,6 +255,7 @@ async def atualizar_camera(
         id=camera.id,
         name=camera.name,
         rtsp_url=camera.rtsp_url,
+        rtsp_url_low=camera.rtsp_url_low,
         is_recording=camera.is_recording,
         created_by_user_id=camera.created_by_user_id,
         path_id=camera.path_id,

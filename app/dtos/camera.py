@@ -5,6 +5,9 @@ from datetime import datetime
 class CamCreate(BaseModel):
     name: str
     rtsp_url: str
+    rtsp_url_low: Optional[str] = None
+    path_id: Optional[str] = None
+    path_id_low: Optional[str] = None
     is_recording: bool = False
     created_by_user_id: Optional[int] = None
 
@@ -12,6 +15,7 @@ class CamData(CamCreate):
     id: int
     name: str
     rtsp_url: str
+    rtsp_url_low: Optional[str] = None
     path_id: str
     path_id_low: Optional[str] = None
     visualisation_url_hls: str 

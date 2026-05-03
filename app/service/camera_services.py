@@ -12,11 +12,13 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
             detail="Já existe uma câmera com este nome."
         )
     
-    path_id = f"live/{camera_data.name.lower().replace(' ', '_')}"
+    path_id = camera_data.path_id if camera_data.path_id else camera_data.name.strip().replace(' ', '_')
+    path_id_low = camera_data.path_id_low if camera_data.path_id_low else None
     
     from app.service.mediaMtx_services import media_mtx_service
     
     try:
+        # Criar path principal
         path_is_ready = await media_mtx_service.create_and_verify_camera_path(
             path_name=path_id,
             rtsp_url=camera_data.rtsp_url,
@@ -24,6 +26,20 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
         )
         if not path_is_ready:
             raise HTTPException(status_code=503, detail="Não foi possível configurar o stream no MediaMTX.")
+        
+        # Se URL de baixa qualidade foi fornecida, criar path para isso também
+        if camera_data.rtsp_url_low and path_id_low:
+            try:
+                low_quality_ready = await media_mtx_service.create_and_verify_camera_path(
+                    path_name=path_id_low,
+                    rtsp_url=camera_data.rtsp_url_low,
+                    record=camera_data.is_recording
+                )
+                if not low_quality_ready:
+                    print(f"AVISO: Não foi possível configurar stream de baixa qualidade para {path_id_low}")
+            except Exception as e:
+                print(f"AVISO: Erro ao configurar stream de baixa qualidade: {e}")
+                # Continua mesmo se falhar na baixa qualidade
     except TimeoutError as e:
         raise HTTPException(status_code=504, detail=f"Timeout ao configurar stream: {e}")
     except Exception as e:
@@ -32,10 +48,11 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
     camera = Camera(
         name=camera_data.name,
         rtsp_url=camera_data.rtsp_url,
+        rtsp_url_low=camera_data.rtsp_url_low,
         is_recording=camera_data.is_recording,
         created_by_user_id=camera_data.created_by_user_id,
         path_id=path_id,
-        path_id_low=f"{path_id}_low"
+        path_id_low=path_id_low
     )
     return create_camera(camera, session)
 

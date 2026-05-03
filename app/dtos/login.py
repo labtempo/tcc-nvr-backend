@@ -17,3 +17,6 @@ class NovoUsuario(BaseModel):
     email: EmailStr
     password: str
     full_name: str
+
+class AtualizarUsuario(BaseModel):
+    password: str

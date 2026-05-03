@@ -3,7 +3,7 @@ from datetime import timedelta
 from typing import List
 from sqlmodel import Session
 
-from app.dtos.login import LoginData, UserData, NovoUsuario
+from app.dtos.login import LoginData, UserData, NovoUsuario, AtualizarUsuario
 from app.resources.logging.logger import get_logger
 from app.security.TokenContext import TokenResponse
 from app.security.security import gerar_token, pegar_usuario_atual, criar_hash_senha
@@ -109,6 +109,37 @@ async def area_restrita(usuario_atual: User = Depends(pegar_usuario_atual)):
         "msg": f"Olá {usuario_atual.full_name}, você acessou a área restrita!",
         "user_id": usuario_atual.id
     }
+
+@router.put("/usuarios/{user_id}", response_model=dict)
+async def atualizar_usuario(
+    user_id: int,
+    dados_atualizacao: AtualizarUsuario,
+    usuario_atual: User = Depends(pegar_usuario_atual),
+    session: Session = Depends(get_session)
+):
+    if usuario_atual.user_role_id != 1:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem atualizar usuários."
+        )
+
+    user_to_update = session.get(User, user_id)
+    
+    if not user_to_update:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Usuário não encontrado."
+        )
+
+    # Atualizar senha
+    user_to_update.password_hash = criar_hash_senha(dados_atualizacao.password)
+    session.add(user_to_update)
+    session.commit()
+    session.refresh(user_to_update)
+
+    logger.info(f"Senha do usuário {user_to_update.email} foi atualizada pelo admin {usuario_atual.email}")
+
+    return {"msg": f"Senha do usuário {user_to_update.email} atualizada com sucesso!"}
 
 @router.delete("/usuarios/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def deletar_usuario(
