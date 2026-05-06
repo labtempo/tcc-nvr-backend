@@ -6,6 +6,7 @@ class Camera(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
     rtsp_url: str
+    rtsp_url_low: Optional[str] = Field(default=None)
     is_recording: bool = Field(default=False)
     created_by_user_id: Optional[int] = Field(default=None, foreign_key="user.id")
     path_id: str = Field(index=True, nullable=False)
