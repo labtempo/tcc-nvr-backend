@@ -39,10 +39,10 @@ authInternalUsers:
         path: ~^.*$
 
   - user: any
-    pass:
     permissions:
       - action: publish
-        path: ~^.*$ 
-      - action: read
+        path: ~^.*$   
+      - action: playback    
         path: ~^.*$
-      
+      - action: read         
+        path: ~^.*$
