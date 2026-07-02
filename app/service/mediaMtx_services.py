@@ -68,7 +68,7 @@ class MediaMtxService:
         if record:
              payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
-             payload["recordSegmentDuration"] = "10s"
+             payload["recordSegmentDuration"] = "60s"
              payload["recordDeleteAfter"] = "24h"
 
         print(f"INFO: Enviando comando de criação (PATCH/ADD) para o path '{path_name}' com payload: {payload}")
@@ -239,7 +239,7 @@ class MediaMtxService:
         if record:
              payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
-             payload["recordSegmentDuration"] = "10s"
+             payload["recordSegmentDuration"] = "60s"
              payload["recordDeleteAfter"] = "24h"
 
         # 1. Tentar Atualizar (PATCH) - Atomic Update

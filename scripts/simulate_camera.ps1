@@ -5,7 +5,7 @@ param (
 $ErrorActionPreference = "Stop"
 
 $SafeName = $CameraName.ToLower().Replace(" ", "_")
-$RtspPath = "live/$SafeName"
+$RtspPath = "$SafeName"
 $RtspUrl = "rtsp://mediamtx:8554/$RtspPath"
 $ApiUrl = "http://localhost:8000/api/v1"
 $AdminEmail = "admin@sistema.com"  # Updated to match the readme/db value
