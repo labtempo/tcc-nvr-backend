@@ -68,8 +68,6 @@ class MediaMtxService:
         if record:
              payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
-             payload["recordSegmentDuration"] = "60s"
-             payload["recordDeleteAfter"] = "24h"
 
         print(f"INFO: Enviando comando de criação (PATCH/ADD) para o path '{path_name}' com payload: {payload}")
 
@@ -239,8 +237,6 @@ class MediaMtxService:
         if record:
              payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
-             payload["recordSegmentDuration"] = "60s"
-             payload["recordDeleteAfter"] = "24h"
 
         # 1. Tentar Atualizar (PATCH) - Atomic Update
         try:
@@ -353,4 +349,20 @@ class MediaMtxService:
                 raise Exception(f"MediaMTX falhou ao deletar path '{path_name}': {e.response.status_code} - {e.response.text}")
         except httpx.RequestError as e:
              raise Exception(f"Falha de comunicação ao deletar path no MediaMTX: {e}")
+
+    async def update_global_record_settings(self, record_segment_duration: str, record_delete_after: str):
+        """Update global path defaults in MediaMTX."""
+        endpoint = "/v3/config/pathdefaults/patch"
+        payload = {
+            "recordSegmentDuration": record_segment_duration,
+            "recordDeleteAfter": record_delete_after
+        }
+        try:
+            response = await self.command_client.patch(endpoint, json=payload)
+            response.raise_for_status()
+            print(f"SUCESSO: Configurações globais de gravação aplicadas no MediaMTX: {payload}")
+        except httpx.HTTPStatusError as e:
+            raise Exception(f"MediaMTX rejeitou a atualização das configurações globais: {e.response.status_code} - {e.response.text}")
+        except httpx.RequestError as e:
+            raise Exception(f"Falha de comunicação ao atualizar configurações globais no MediaMTX: {e}")
 media_mtx_service = MediaMtxService()
