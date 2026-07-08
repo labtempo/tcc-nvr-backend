@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query, status, Depends
 from fastapi.responses import StreamingResponse
 import httpx
+from urllib.parse import urlencode, quote
 from sqlmodel import Session
 from app.domain.user import User
 from app.dtos.camera import CamCreate, CamData
@@ -107,16 +108,21 @@ async def get_camera_recordings(
             response.raise_for_status()
             data = response.json()
             
-            # Transform URLs to correct format: from ?path=camera&start=... to /camera/get?start=...
+            # Transform URLs to correct format following MediaMTX official docs
+            # Pattern: /get?path=[mypath]&start=[start]&duration=[duration]&format=mp4
             if isinstance(data, list):
                 for segment in data:
-                    if "url" in segment:
-                        # Rewrite URL from /get?path=X&start=Y&duration=Z to /X/get?start=Y&duration=Z
-                        segment["url"] = f"{settings.media_mtx_playback_url}/{camera.path_id}/get?start={segment.get('start', '')}&duration={segment.get('duration', '')}"
+                    if "start" in segment and "duration" in segment:
+                        # URL-encode all parameters properly
+                        start_encoded = quote(segment.get('start', ''), safe='')
+                        path_encoded = quote(camera.path_id, safe='')
+                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=mp4"
             elif isinstance(data, dict) and "segments" in data:
                 for segment in data.get("segments", []):
-                    if "url" in segment:
-                        segment["url"] = f"{settings.media_mtx_playback_url}/{camera.path_id}/get?start={segment.get('start', '')}&duration={segment.get('duration', '')}"
+                    if "start" in segment and "duration" in segment:
+                        start_encoded = quote(segment.get('start', ''), safe='')
+                        path_encoded = quote(camera.path_id, safe='')
+                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=mp4"
             
             return data
         except httpx.ConnectError:
