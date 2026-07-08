@@ -104,8 +104,21 @@ async def get_camera_recordings(
     async with httpx.AsyncClient(auth=auth) as client:
         try:
             response = await client.get(mediamtx_url, params=params)
-            response.raise_for_status() 
-            return response.json() 
+            response.raise_for_status()
+            data = response.json()
+            
+            # Transform URLs to correct format: from ?path=camera&start=... to /camera/get?start=...
+            if isinstance(data, list):
+                for segment in data:
+                    if "url" in segment:
+                        # Rewrite URL from /get?path=X&start=Y&duration=Z to /X/get?start=Y&duration=Z
+                        segment["url"] = f"{settings.media_mtx_playback_url}/{camera.path_id}/get?start={segment.get('start', '')}&duration={segment.get('duration', '')}"
+            elif isinstance(data, dict) and "segments" in data:
+                for segment in data.get("segments", []):
+                    if "url" in segment:
+                        segment["url"] = f"{settings.media_mtx_playback_url}/{camera.path_id}/get?start={segment.get('start', '')}&duration={segment.get('duration', '')}"
+            
+            return data
         except httpx.ConnectError:
             raise HTTPException(status_code=503, detail="Servidor de mídia indisponível")
         except httpx.HTTPStatusError as e:
