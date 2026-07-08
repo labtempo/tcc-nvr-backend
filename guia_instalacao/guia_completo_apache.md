@@ -1,6 +1,3 @@
-Aqui está todo o bloco de texto formatado e padronizado em Markdown, utilizando blocos de código com as respectivas linguagens (bash, sql, apacheconf) para melhor legibilidade:
-
-LOG DE COMANDOS: Instalação do Zero no Linux (WSL / UFF)
 PASSO 1: Atualizar o Sistema e Instalar a Base do Frontend (Node 22 + Angular)
 Bash
 # 1. Atualiza as listas de pacotes do Ubuntu para ele saber onde achar os programas
