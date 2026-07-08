@@ -12,8 +12,14 @@ async def criar_camera(camera_data: CamCreate, session: Session) -> Camera:
             detail="Já existe uma câmera com este nome."
         )
     
-    path_id = camera_data.path_id if camera_data.path_id else camera_data.name.strip().replace(' ', '_')
-    path_id_low = camera_data.path_id_low if camera_data.path_id_low else None
+    # 1. Garante o path_id principal (ex: "camera_teste") com base no name se o front não enviar
+    path_id = camera_data.path_id if camera_data.path_id else camera_data.name.lower().replace(" ", "_")
+
+    # 2. Lógica automática para o path_id_low baseado na existência da URL de baixa
+    if camera_data.rtsp_url_low:
+        path_id_low = camera_data.path_id_low if camera_data.path_id_low else f"{path_id}_low"
+    else:
+        path_id_low = None
     
     from app.service.mediaMtx_services import media_mtx_service
     
