@@ -11,13 +11,22 @@ async def stream_playback(
     start: str = Query(...),
     duration: float = Query(...)
 ):
+    # Validar formato RFC3339 para o timestamp 'start'
+    import re
+    rfc3339_regex = r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})$"
+    if not re.match(rfc3339_regex, start):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="O parâmetro 'start' deve estar no formato RFC3339 estrito (ex: YYYY-MM-DDTHH:MM:SSZ)"
+        )
+
     # 1. Tratamento da Duração
     duration_int = int(duration)
 
     # 2. Configurar MediaMTX
-    mediamtx_url = f"{settings.media_mtx_playback_url}/get"
+    mediamtx_url = f"{settings.media_mtx_playback_url}/{path}/get"
     auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
-    params = {"path": path, "start": start, "duration": duration_int, "format": "mp4"}
+    params = {"start": start, "duration": duration_int, "format": "mp4"}
 
     # 3. Iniciar Cliente HTTP com timeout específico para processamento longo
     timeout_config = httpx.Timeout(connect=15.0, read=None, write=15.0, pool=None)

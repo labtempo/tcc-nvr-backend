@@ -31,7 +31,7 @@ async def adicionar_camera(
     try:
         nova_camera = await criar_camera(dados_camera, session)
     
-        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}/index.m3u8"
+        hls_url = f"{settings.media_mtx_hls_url}/{nova_camera.path_id}"
         webrtc_url = f"{settings.media_mtx_webrtc_url}/{nova_camera.path_id}"
 
         return CamData(
@@ -46,7 +46,7 @@ async def adicionar_camera(
             created_at=nova_camera.created_at,
             updated_at=nova_camera.updated_at,
             visualisation_url_hls=hls_url,
-            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{nova_camera.path_id_low}/index.m3u8" if nova_camera.path_id_low else None,
+            visualisation_url_hls_low=f"{settings.media_mtx_hls_url}/{nova_camera.path_id_low}" if nova_camera.path_id_low else None,
             visualisation_url_webrtc=webrtc_url
         )
     except HTTPException as e:
@@ -221,6 +221,21 @@ async def atualizar_camera(
     rtsp_url_low_changed = camera.rtsp_url_low != dados_camera.rtsp_url_low
     recording_changed = camera.is_recording != dados_camera.is_recording
 
+    # Atualiza ou gera o path_id principal se o nome mudou
+    if hasattr(dados_camera, 'path_id') and dados_camera.path_id:
+        camera.path_id = dados_camera.path_id
+    elif hasattr(dados_camera, 'name') and dados_camera.name:
+        camera.path_id = dados_camera.name.lower().replace(" ", "_")
+
+    # Lógica da substream na edição
+    if dados_camera.rtsp_url_low:
+        # Se passou a ter URL de baixa mas não tem o path_id_low ainda, gera automaticamente
+        if not camera.path_id_low:
+            camera.path_id_low = f"{camera.path_id}_low"
+    else:
+        # Se o usuário removeu a URL de baixa, limpa o path_id_low
+        camera.path_id_low = None
+
     if rtsp_url_changed or recording_changed:
         try:
             await media_mtx_service.create_camera_path(camera.path_id, dados_camera.rtsp_url, dados_camera.is_recording)
@@ -230,8 +245,8 @@ async def atualizar_camera(
                 detail=f"Falha ao reconfigurar stream no MediaMTX: {e}" 
             )
     
-    # Se URL de baixa qualidade foi alterada, reconfigurar também
-    if rtsp_url_low_changed and dados_camera.rtsp_url_low and camera.path_id_low:
+    # Se URL de baixa qualidade foi alterada (ou gravação mudou), reconfigurar também
+    if (rtsp_url_low_changed or recording_changed) and dados_camera.rtsp_url_low and camera.path_id_low:
         try:
             await media_mtx_service.create_camera_path(camera.path_id_low, dados_camera.rtsp_url_low, dados_camera.is_recording)
         except Exception as e:

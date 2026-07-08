@@ -50,19 +50,22 @@ class MediaMtxService:
             f"-f rtsp rtsp://localhost:8554/{path_name}_low"
         )
 
+        is_low_resolution = path_name.endswith("_low")
+
         if rtsp_url.lower().startswith("publisher"):
             payload: Dict[str, Any] = {
-                "source": "publisher",
-                "runOnReady": ffmpeg_cmd,
-                "runOnReadyRestart": True
+                "source": "publisher"
             }
+            if not is_low_resolution:
+                payload["runOnReady"] = ffmpeg_cmd
+                payload["runOnReadyRestart"] = True
         else:
             payload = {
-                "source": rtsp_url,
-                "runOnReady": ffmpeg_cmd,
-                "runOnReadyRestart": True
+                "source": rtsp_url
             }
-            payload = {"source": rtsp_url}
+            if not is_low_resolution:
+                payload["runOnReady"] = ffmpeg_cmd
+                payload["runOnReadyRestart"] = True
         
         payload["record"] = record
         if record:
@@ -219,19 +222,23 @@ class MediaMtxService:
         patch_endpoint = f"/v3/config/paths/patch/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
+        is_low_resolution = path_name.endswith("_low")
+
         # Setup Payload
         if rtsp_url.lower().startswith("publisher"):
             payload: Dict[str, Any] = {
-                "source": "publisher",
-                "runOnReady": ffmpeg_cmd,
-                "runOnReadyRestart": True
+                "source": "publisher"
             }
+            if not is_low_resolution:
+                payload["runOnReady"] = ffmpeg_cmd
+                payload["runOnReadyRestart"] = True
         else:
             payload = {
-                "source": rtsp_url,
-                "runOnReady": ffmpeg_cmd,
-                "runOnReadyRestart": True
+                "source": rtsp_url
             }
+            if not is_low_resolution:
+                payload["runOnReady"] = ffmpeg_cmd
+                payload["runOnReadyRestart"] = True
 
         payload["record"] = record
         if record:
