@@ -26,7 +26,7 @@ async def stream_playback(
     # 2. Configurar MediaMTX - Usando padrão correto: /get?path=X&start=...&duration=...
     mediamtx_url = f"{settings.media_mtx_playback_url}/get"
     auth = (settings.MEDIAMTX_API_USER, settings.MEDIAMTX_API_PASS)
-    params = {"path": path, "start": start, "duration": duration_int, "format": "mp4"}
+    params = {"path": path, "start": start, "duration": duration_int, "format": "fmp4"}
 
     # 3. Iniciar Cliente HTTP com timeout específico para processamento longo
     timeout_config = httpx.Timeout(connect=15.0, read=None, write=15.0, pool=None)
