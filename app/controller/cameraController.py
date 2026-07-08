@@ -116,13 +116,13 @@ async def get_camera_recordings(
                         # URL-encode all parameters properly
                         start_encoded = quote(segment.get('start', ''), safe='')
                         path_encoded = quote(camera.path_id, safe='')
-                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=mp4"
+                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=fmp4"
             elif isinstance(data, dict) and "segments" in data:
                 for segment in data.get("segments", []):
                     if "start" in segment and "duration" in segment:
                         start_encoded = quote(segment.get('start', ''), safe='')
                         path_encoded = quote(camera.path_id, safe='')
-                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=mp4"
+                        segment["url"] = f"{settings.media_mtx_playback_url}/get?path={path_encoded}&start={start_encoded}&duration={int(segment.get('duration', 0))}&format=fmp4"
             
             return data
         except httpx.ConnectError:
