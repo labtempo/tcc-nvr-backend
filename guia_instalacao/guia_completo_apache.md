@@ -104,7 +104,7 @@ cd ../tcc-nvr-frontend
 # 2. Instala todos os pacotes e dependências do Node.js
 npm install
 
-# 3. ATENÇÃO AQUI, CASO FOIR RODAR O ANGULAR LOCAL -> Executa o Angular em SEGUNDO PLANO de forma persistente (nohup) e silenciosa
+# 3. ATENÇÃO AQUI, CASO FOR RODAR O ANGULAR LOCAL -> Executa o Angular em SEGUNDO PLANO de forma persistente (nohup) e silenciosa
 nohup npm run start > angular.log 2>&1 &
 
 # Caso for usar o apache
@@ -196,6 +196,9 @@ sudo a2enmod rewrite
 
 # Testar se a sintaxe do arquivo está correta
 sudo apache2ctl configtest
+
+# Caso essa comando acima não funcione, voce precisa dar permissao
+chmod 755 /home/seu_usuario
 ```
 
 > **Nota:** Certifique-se de que o retorno do comando acima seja `Syntax OK`.
