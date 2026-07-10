@@ -167,9 +167,9 @@ PARA COLOCAR EM Directory E DocumentRoot
     ServerName localhost
 
     # 1. Diretório dos arquivos estáticos do Angular compilado
-    DocumentRoot /home/projeto_TCC/tcc-nvr-frontend/dist/tcc-nvr-frontend/browser
+    DocumentRoot /home/SEU_USUARIO_ONDE_O_PROJETO_ESTÁ/Projeto_TCC/tcc-nvr-frontend/dist/tcc-nvr-frontend/browser
 
-    <Directory /home/projeto_TCC/tcc-nvr-frontend/dist/tcc-nvr-frontend/browser>
+    <Directory /home/SEU_USUARIO_ONDE_O_PROJETO_ESTÁ/Projeto_TCC/tcc-nvr-frontend/dist/tcc-nvr-frontend/browser>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
