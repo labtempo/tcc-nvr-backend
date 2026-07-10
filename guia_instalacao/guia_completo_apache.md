@@ -5,6 +5,7 @@
 ```bash
 # 1. Atualiza as listas de pacotes do Ubuntu
 sudo apt update
+sudo apt install ffmpeg -y
 
 # 2. Instala o curl para conseguir baixar instaladores da internet
 sudo apt install curl -y
