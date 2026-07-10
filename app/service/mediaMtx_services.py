@@ -44,21 +44,21 @@ class MediaMtxService:
         get_endpoint = f"/v3/paths/get/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
+        # PASS-THROUGH: sem transcodificação, apenas cópia de packets (muito mais leve!)
         ffmpeg_cmd = (
             f"ffmpeg -i rtsp://localhost:8554/{path_name} "
-            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 " # Low qual profile
+            f"-c copy "  # ← Pass-through: copia codec original, sem re-encode
             f"-f rtsp rtsp://localhost:8554/{path_name}_low"
         )
 
         is_low_resolution = path_name.endswith("_low")
+        is_publisher = rtsp_url.lower().startswith("publisher")
 
-        if rtsp_url.lower().startswith("publisher"):
+        if is_publisher:
+            # Publishers não precisam de runOnReady - FFmpeg já está publicando
             payload: Dict[str, Any] = {
                 "source": "publisher"
             }
-            if not is_low_resolution:
-                payload["runOnReady"] = ffmpeg_cmd
-                payload["runOnReadyRestart"] = True
         else:
             payload = {
                 "source": rtsp_url
@@ -212,9 +212,10 @@ class MediaMtxService:
         import urllib.parse
         encoded_path_name = urllib.parse.quote(path_name, safe='')
         
+        # PASS-THROUGH: sem transcodificação, apenas cópia de packets (muito mais leve!)
         ffmpeg_cmd = (
             f"ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/{path_name} "
-            f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 "
+            f"-c copy "  # ← Pass-through: copia codec original, sem re-encode
             f"-f rtsp -rtsp_transport tcp rtsp://localhost:8554/{path_name}_low?publish"
         )
         
@@ -223,15 +224,14 @@ class MediaMtxService:
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
         is_low_resolution = path_name.endswith("_low")
+        is_publisher = rtsp_url.lower().startswith("publisher")
 
         # Setup Payload
-        if rtsp_url.lower().startswith("publisher"):
+        if is_publisher:
+            # Publishers não precisam de runOnReady
             payload: Dict[str, Any] = {
                 "source": "publisher"
             }
-            if not is_low_resolution:
-                payload["runOnReady"] = ffmpeg_cmd
-                payload["runOnReadyRestart"] = True
         else:
             payload = {
                 "source": rtsp_url
