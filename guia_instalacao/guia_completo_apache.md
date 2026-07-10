@@ -118,6 +118,9 @@ npm run build -- --configuration=production
 # 1. Retorna para a pasta do Backend
 cd ../tcc-nvr-backend
 
+# 2. Rodar comando para criar usuario adimin (admin@sistema.com ; admin123)
+python3 seed_admin.py
+
 # 2. Inicializa o servidor Uvicorn do FastAPI na tela principal
 uvicorn app.main:app --reload
 ```
@@ -146,6 +149,9 @@ sudo nano /etc/apache2/sites-available/tcc.conf
 ```
 
 Cole o seguinte conteúdo dentro do arquivo (ajustando os caminhos se necessário):
+!! ATENTAR-SE COM O DIRETORIO DO SEU PROJETO
+PARA COLOCAR EM Directory E DocumentRoot
+
 
 ```apache
 <VirtualHost *:80>
