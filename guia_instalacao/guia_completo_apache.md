@@ -119,11 +119,15 @@ npm run build -- --configuration=production
 # 1. Retorna para a pasta do Backend
 cd ../tcc-nvr-backend
 
-# 2. Rodar comando para criar usuario adimin (admin@sistema.com ; admin123)
+# 2. Instalar o uvicorn
+sudo apt install uvicorn -y
+
+# 3. Inicializa o servidor Uvicorn do FastAPI na tela principal
+uvicorn app.main:app --reload
+
+# 4. Rodar comando para criar usuario adimin (admin@sistema.com ; admin123)
 python3 seed_admin.py
 
-# 2. Inicializa o servidor Uvicorn do FastAPI na tela principal
-uvicorn app.main:app --reload
 ```
 
 ## 💡 Comandos Utilitários de Monitoramento
@@ -140,6 +144,10 @@ jobs
 ## 🌐 Configuração do Servidor Web Apache
 
 O Apache atuará como o servidor web principal, servindo os arquivos estáticos do Angular na porta 80 e realizando proxy reverso das requisições de API para o backend.
+
+### Instalar o Apache
+
+sudo apt install apache2 -y
 
 ### Passo 1.1: Criar o arquivo de configuração do site
 
