@@ -146,9 +146,9 @@ jobs
 O Apache atuará como o servidor web principal, servindo os arquivos estáticos do Angular na porta 80 e realizando proxy reverso das requisições de API para o backend.
 
 ### Instalar o Apache
-
+```
 sudo apt install apache2 -y
-
+```
 ### Passo 1.1: Criar o arquivo de configuração do site
 
 Crie um novo arquivo de configuração específico para o projeto:
