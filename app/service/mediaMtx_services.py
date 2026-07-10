@@ -213,9 +213,9 @@ class MediaMtxService:
         encoded_path_name = urllib.parse.quote(path_name, safe='')
         
         ffmpeg_cmd = (
-            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
+            f"ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/{path_name} "
             f"-c:v libx264 -preset ultrafast -tune zerolatency -b:v 400k -s 640x360 "
-            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
+            f"-f rtsp -rtsp_transport tcp rtsp://localhost:8554/{path_name}_low"
         )
         
         add_endpoint = f"/v3/config/paths/add/{encoded_path_name}"
