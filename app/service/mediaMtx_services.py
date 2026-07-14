@@ -44,32 +44,25 @@ class MediaMtxService:
         get_endpoint = f"/v3/paths/get/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
 
-        # PASS-THROUGH: sem transcodificação, apenas cópia de packets (muito mais leve!)
-        ffmpeg_cmd = (
-            f"ffmpeg -i rtsp://localhost:8554/{path_name} "
-            f"-c copy "  # ← Pass-through: copia codec original, sem re-encode
-            f"-f rtsp rtsp://localhost:8554/{path_name}_low"
-        )
-
         is_low_resolution = path_name.endswith("_low")
         is_publisher = rtsp_url.lower().startswith("publisher")
 
+        # Câmeras enviam 2 streams: RTSP principal (H264/H265) e substream (baixa qualidade)
+        # Não precisa de FFmpeg para transcodificar - apenas pass-through direto!
         if is_publisher:
-            # Publishers não precisam de runOnReady - FFmpeg já está publicando
+            # Publishers não precisam de runOnReady - já estão publicando
             payload: Dict[str, Any] = {
                 "source": "publisher"
             }
         else:
+            # Pass-through direto do stream RTSP (H264 ou H265)
             payload = {
                 "source": rtsp_url
             }
-            if not is_low_resolution:
-                payload["runOnReady"] = ffmpeg_cmd
-                payload["runOnReadyRestart"] = True
         
         payload["record"] = record
         if record:
-             payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
+             payload["recordPath"] = "./recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
 
         print(f"INFO: Enviando comando de criação (PATCH/ADD) para o path '{path_name}' com payload: {payload}")
@@ -212,13 +205,6 @@ class MediaMtxService:
         import urllib.parse
         encoded_path_name = urllib.parse.quote(path_name, safe='')
         
-        # PASS-THROUGH: sem transcodificação, apenas cópia de packets (muito mais leve!)
-        ffmpeg_cmd = (
-            f"ffmpeg -rtsp_transport tcp -i rtsp://localhost:8554/{path_name} "
-            f"-c copy "  # ← Pass-through: copia codec original, sem re-encode
-            f"-f rtsp -rtsp_transport tcp rtsp://localhost:8554/{path_name}_low?publish"
-        )
-        
         add_endpoint = f"/v3/config/paths/add/{encoded_path_name}"
         patch_endpoint = f"/v3/config/paths/patch/{encoded_path_name}"
         delete_endpoint = f"/v3/config/paths/delete/{encoded_path_name}"
@@ -226,23 +212,22 @@ class MediaMtxService:
         is_low_resolution = path_name.endswith("_low")
         is_publisher = rtsp_url.lower().startswith("publisher")
 
-        # Setup Payload
+        # Câmeras enviam 2 streams: RTSP principal (H264/H265) e substream (baixa qualidade)
+        # Não precisa de FFmpeg para transcodificar - apenas pass-through direto!
         if is_publisher:
             # Publishers não precisam de runOnReady
             payload: Dict[str, Any] = {
                 "source": "publisher"
             }
         else:
+            # Pass-through direto do stream RTSP (H264 ou H265)
             payload = {
                 "source": rtsp_url
             }
-            if not is_low_resolution:
-                payload["runOnReady"] = ffmpeg_cmd
-                payload["runOnReadyRestart"] = True
 
         payload["record"] = record
         if record:
-             payload["recordPath"] = "/recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
+             payload["recordPath"] = "./recordings/%path/%Y-%m-%d_%H-%M-%S-%f"
              payload["recordFormat"] = "fmp4"
 
         # 1. Tentar Atualizar (PATCH) - Atomic Update

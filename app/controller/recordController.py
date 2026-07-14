@@ -15,7 +15,7 @@ async def criar_gravacao(
     usuario_atual: User = Depends(pegar_usuario_atual)
 ):
     
-    url_acesso = f"/recordings/{dados_gravacao.nome_arquivo}"
+    url_acesso = f"./recordings/{dados_gravacao.nome_arquivo}"
     
     
     nova_gravacao = Record(
