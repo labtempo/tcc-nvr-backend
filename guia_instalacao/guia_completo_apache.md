@@ -89,10 +89,16 @@ pip install -r requirements.txt
 # 1. Baixa a versão oficial do MediaMTX para Linux AMD64
 wget https://github.com/bluenviron/mediamtx/releases/download/v1.9.0/mediamtx_v1.9.0_linux_amd64.tar.gz
 
-# 2. Extrai os arquivos binários na pasta atual do backend
+# 2. Guarda uma copia do medimatx.yml salvo no backend
+mv mediamtx.yml mediamtx_projeto_backup.yml
+
+# 3. Extrai os arquivos binários na pasta atual do backend
 tar -xf mediamtx_v1.9.0_linux_amd64.tar.gz
 
-# 3. Executa o MediaMTX em SEGUNDO PLANO (&) para liberar o terminal
+# 4. Sobreescreve o arquivo padrão do mediamtx pelo original do projeto
+mv mediamtx_projeto_backup.yml mediamtx.yml
+
+# 5. Executa o MediaMTX em SEGUNDO PLANO (&) para liberar o terminal
 ./mediamtx &
 ```
 
